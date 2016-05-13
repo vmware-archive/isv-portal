@@ -1,0 +1,14 @@
+site_name: ISV Integrations
+
+pages:
+- 'Developer Guide':
+  - 'Getting Started': 'getting-started.md'
+  - 'Stages of Integration': 'stages.md'
+- 'Reference':
+  - 'Tile Generator': 'tile-generator.md'
+  - 'PCF Command': 'pcf-command.md'
+
+markdown_extensions:
+  - toc:
+      permalink:
+  - admonition:
