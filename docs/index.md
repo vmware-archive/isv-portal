@@ -12,3 +12,4 @@ start this process on your own, or [contact us](mailto:mjoseph@pivotal.io)
 to ask for our support and/or publish your integration in our
 [marketplace](network.pivotal.io).
 
+If you are new to this site, [start here](getting-started.md).
