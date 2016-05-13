@@ -1,6 +1,7 @@
 site_name: ISV Integrations
 
 pages:
+- 'Home': 'index.md'
 - 'Developer Guide':
   - 'Getting Started': 'getting-started.md'
   - 'Stages of Integration': 'stages.md'
