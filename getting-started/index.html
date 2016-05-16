@@ -77,7 +77,31 @@
                         
                             
 <li >
+    <a href="../integration-types/">Integration Types</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../stages/">Stages of Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../development/">Development Process</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../tile-documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../concourse/">Continuous Integration</a>
 </li>
 
                         
@@ -91,15 +115,90 @@
                         <ul class="dropdown-menu">
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Commands</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../tile-generator/">Tile Generator</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
     <a href="../pcf-command/">PCF Command</a>
 </li>
+
+        
+            
+<li >
+    <a href="../concourse/">Concourse</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Components</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../service-brokers/">Service Brokers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../managed-services/">Managed Services</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dynamic-services/">Dynamic Services</a>
+</li>
+
+        
+            
+<li >
+    <a href="../buildpacks/">Buildpacks</a>
+</li>
+
+        
+            
+<li >
+    <a href="../embedded-agents/">Embedded Agents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Setup</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../setup-pcfdev/">PCF Dev</a>
+</li>
+
+        
+            
+<li >
+    <a href="../setup-pcf/">PCF</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                         </ul>
@@ -182,7 +281,7 @@ to ask for our support and/or publish your integration in our
 integration with Cloud Foundry. This page attempts to lay out a typical
 progression of an integration with PCF.</p>
 <h2 id="step-0-understand-the-concepts">Step 0. Understand the concepts</h2>
-<p>There are <a href="integration-types.md">many ways</a> to integrate products with Cloud Foundry.
+<p>There are <a href="../integration-types/">many ways</a> to integrate products with Cloud Foundry.
 The right one for each product depends on what the product does, and how
 customer applications consume it. To determine the best way to integrate your
 product, you'll need a good understanding of
@@ -193,10 +292,10 @@ like applications, containers, services, brokers, and buildpacks.</p>
 you are in a position to decide what the integration looks like. Integration
 points might include:</p>
 <ul>
-<li><a href="../service-brokers">Service Brokers</a></li>
-<li><a href="../managed-services">Managed Services</a></li>
-<li><a href="../buildpacks">Buildpacks</a></li>
-<li><a href="../embedded-agents">Embedded Agents</a></li>
+<li><a href="../cf-concepts/#service-brokers">Service Brokers</a></li>
+<li><a href="../stages/#managed">Managed Services</a></li>
+<li><a href="../cf-concepts/#buildpacks">Buildpacks</a></li>
+<li><a href="../cf-concepts/#agents">Embedded Agents</a></li>
 <li>Or any combination of the above</li>
 </ul>
 <p>If you are not intimately familiar with Cloud Foundry, this is one of the
@@ -207,11 +306,11 @@ Cloud Foundry, to map out the best possible integration path.</p>
 <p>Depending on the selected type of integration, you will need to learn
 how to build on or more of:</p>
 <ul>
-<li><a href="service-brokers.md">Service brokers</a></li>
-<li><a href="managed-services.md">Managed services</a></li>
-<li><a href="dynamic-services.md">Dynamic services</a></li>
-<li><a href="buildpacks.md">Buildpacks</a></li>
-<li><a href="embedded-agents.md">Embedded agents</a></li>
+<li><a href="../service-brokers/">Service brokers</a></li>
+<li><a href="../managed-services/">Managed services</a></li>
+<li><a href="../dynamic-services/">Dynamic services</a></li>
+<li><a href="../buildpacks/">Buildpacks</a></li>
+<li><a href="../embedded-agents/">Embedded agents</a></li>
 </ul>
 <p>Self-learning is definitely possible. If you are interested in more
 organized learning, Pivotal provides many different classes and labs for
@@ -224,13 +323,13 @@ environments that are operated and managed by Pivotal. If you are not (yet)
 in our program, need a dedicated environment, or want to be able to work
 offline, you can set up a PCF environment on:</p>
 <ul>
-<li><a href="pcf-dev.md">Developer desktop/laptop</a></li>
-<li><a href="pcf-iaas.md">Supported public or private infrastructure (IaaS)</a></li>
+<li><a href="../setup-pcfdev/">Developer desktop/laptop</a></li>
+<li><a href="../setup-pcf/#setup">Supported public or private infrastructure (IaaS)</a></li>
 </ul>
 <p>You will then also need to learn to operate and upgrade PCF by yourself:</p>
 <ul>
-<li><a href="pcf-operations.md">Operating a PCF environment</a></li>
-<li><a href="pcf-upgrade.md">Upgrading a PCF environment</a></li>
+<li><a href="../setup-pcf/#operations">Operating a PCF environment</a></li>
+<li><a href="../setup-pcf/#upgrade">Upgrading a PCF environment</a></li>
 </ul>
 <h2 id="step-4-validate-the-design">Step 4. Validate the design</h2>
 <p>Pivotal is a strong believer in lean and agile development and the notion
@@ -249,29 +348,29 @@ and it will let real consumers weigh in development priorities.</p>
 applications. Those can be real customer applications, or test applications
 that are deployed to PCF.</p>
 <ul>
-<li><a href="app-development.md">Developing applications</a></li>
-<li><a href="service-binding.md">Binding services</a></li>
+<li><a href="../cf-concepts/#applications">Developing applications</a></li>
+<li><a href="../cf-concepts/#services">Binding services</a></li>
 </ul>
 <h2 id="step-5-develop-your-tile">Step 5. Develop your tile</h2>
 <p>Once the design is established and validated, and the first <a href="../stages/">stage</a>
 has been defined, you would start actual development of your tile.</p>
 <ul>
-<li>Develop and test the individual components</li>
-<li>Generate your tile</li>
-<li>Test the deploy and delete errands</li>
-<li>Deploy and test your tile</li>
+<li><a href="../development/#components">Develop and test the individual components</a></li>
+<li><a href="../development/#tile-generator">Generate your tile</a></li>
+<li><a href="../development/#test-errands">Test the deploy and delete errands</a></li>
+<li><a href="../development/#deploy">Deploy and test your tile</a></li>
 </ul>
 <h2 id="step-6-publish-your-tile">Step 6. Publish your tile</h2>
 <ul>
-<li><a href="tile-documentation.md">Complete the documentation</a></li>
+<li><a href="../tile-documentation/">Complete the documentation</a></li>
 <li><a href="../contacts/">Work with Pivotal to publish your tile</a></li>
 </ul>
 <h2 id="step-7-maintain-your-tile">Step 7. Maintain your tile</h2>
 <ul>
-<li><a href="concourse.md#server">Set up a Concourse Server</a></li>
-<li><a href="concourse.md#pipeline">Set up a Concourse Pipeline</a></li>
+<li><a href="../concourse/#server">Set up a Concourse Server</a></li>
+<li><a href="../concourse/#pipeline">Set up a Concourse Pipeline</a></li>
 <li>
-<p><a href="concourse.md#pool">Create a target PCF pool</a></p>
+<p><a href="../concourse/#pool">Create a target PCF pool</a></p>
 </li>
 <li>
 <p><a href="../tile-generator/#upgrades">Upgrading tiles</a></p>

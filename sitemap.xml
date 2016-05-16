@@ -24,7 +24,31 @@
     </url>
         
     <url>
+     <loc>None/integration-types/</loc>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/stages/</loc>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/development/</loc>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/tile-documentation/</loc>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/concourse/</loc>
      <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -34,14 +58,20 @@
     
         
     <url>
-     <loc>None/tile-generator/</loc>
-     <lastmod>2016-05-16</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/pcf-command/</loc>
-     <lastmod>2016-05-16</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

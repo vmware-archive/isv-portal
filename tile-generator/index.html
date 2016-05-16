@@ -77,7 +77,31 @@
                         
                             
 <li >
+    <a href="../integration-types/">Integration Types</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../stages/">Stages of Integration</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../development/">Development Process</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../tile-documentation/">Documentation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../concourse/">Continuous Integration</a>
 </li>
 
                         
@@ -91,15 +115,90 @@
                         <ul class="dropdown-menu">
                         
                             
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Commands</a>
+    <ul class="dropdown-menu">
+        
+            
 <li class="active">
     <a href="./">Tile Generator</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
     <a href="../pcf-command/">PCF Command</a>
 </li>
+
+        
+            
+<li >
+    <a href="../concourse/">Concourse</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Components</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../service-brokers/">Service Brokers</a>
+</li>
+
+        
+            
+<li >
+    <a href="../managed-services/">Managed Services</a>
+</li>
+
+        
+            
+<li >
+    <a href="../dynamic-services/">Dynamic Services</a>
+</li>
+
+        
+            
+<li >
+    <a href="../buildpacks/">Buildpacks</a>
+</li>
+
+        
+            
+<li >
+    <a href="../embedded-agents/">Embedded Agents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Setup</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../setup-pcfdev/">PCF Dev</a>
+</li>
+
+        
+            
+<li >
+    <a href="../setup-pcf/">PCF</a>
+</li>
+
+        
+    </ul>
+  </li>
 
                         
                         </ul>
@@ -123,7 +222,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../stages/">
+                        <a rel="next" href="../concourse/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -155,6 +254,8 @@
             <li><a href="#defining-your-tile">Defining your Tile</a></li>
         
             <li><a href="#versioning">Versioning</a></li>
+        
+            <li><a href="#upgrades">Upgrades</a></li>
         
             <li><a href="#example">Example</a></li>
         
@@ -446,7 +547,6 @@ by using the <code>docker-bosh</code> type:</p>
       # See below on custom forms/variables and binding it to the docker env variable
       - "custom_variable_name=((.properties.customer_name.value))"
 </pre></p>
-<p>Also, refer to <a href="docs/docker-bosh.md">docker-bosh</a> for more details.</p>
 <h3 id="custom-forms-and-properties">Custom Forms and Properties</h3>
 <p>You can pass custom properties to all applications deployed by your tile by adding
 the to the properties section of <code>tile.yml</code>:</p>
@@ -590,6 +690,14 @@ tile build &lt;new-version&gt;
 </code></pre>
 
 <p>The new tile will then support upgrades from <code>old-version</code>.</p>
+<p><a name="upgrades"></a> </p>
+<h2 id="upgrades">Upgrades</h2>
+<p>By default, tile generator produces all code necessary to do a blue/green,
+zero-downtime deployment of all tile components when installing a newer version
+over an older one. For most tile versions this will be all that is needed.</p>
+<p>Ops Manager has support for performing upgrade actions, like database migrations,
+during a tile upgrade, but this capability is not yet exposed through tile
+generator.</p>
 <h2 id="example">Example</h2>
 <pre><code class="bash">$ tile build
 name: tibco-bwce
