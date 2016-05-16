@@ -4,10 +4,12 @@ pages:
 - 'Home': 'index.md'
 - 'Developer Guide':
   - 'Getting Started': 'getting-started.md'
+  - 'Cloud Foundry Concepts': 'cf-concepts.md'
   - 'Stages of Integration': 'stages.md'
 - 'Reference':
   - 'Tile Generator': 'tile-generator.md'
   - 'PCF Command': 'pcf-command.md'
+- 'Contacts': 'contacts.md'
 
 markdown_extensions:
   - toc:

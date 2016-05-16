@@ -8,7 +8,7 @@ with the applications they are developing on PCF.
 Pivotal is very supportive of these types of integrations and is committed to
 making this process as easy as possible. This site provides a *technical*
 overview on how to integrate your software with PCF. You are welcome to
-start this process on your own, or [contact us](mailto:mjoseph@pivotal.io)
+start this process on your own, or [contact us](contacts.md)
 to ask for our support and/or publish your integration in our
 [marketplace](network.pivotal.io).
 
@@ -31,10 +31,10 @@ With sufficient understanding of both your product, and Cloud Foundry concepts,
 you are in a position to decide what the integration looks like. Integration
 points might include:
 
-- Service Brokers
-- Managed Services
-- Buidlpacks
-- Embedded Agents
+- [Service Brokers](service-brokers)
+- [Managed Services](managed-services)
+- [Buildpacks](buildpacks)
+- [Embedded Agents](embedded-agents)
 - Or any combination of the above
 
 If you are not intimately familiar with Cloud Foundry, this is one of the
@@ -55,7 +55,7 @@ how to build on or more of:
 
 Self-learning is definitely possible. If you are interested in more
 organized learning, Pivotal provides many different classes and labs for
-partners and customers. [Contact us](mailto:mjoseph@pivotal.io)
+partners and customers. [Contact us](contacts.md)
 if your are interested in learning more about this.
 
 ## Step 3. Set up a test environment
@@ -77,7 +77,7 @@ You will then also need to learn to operate and upgrade PCF by yourself:
 ## Step 4. Validate the design
 
 Pivotal is a strong believer in lean and agile development and the notion
-of delivering a Minimally Viable Product (MVP) to our customers as quickly
+of delivering a Minimal Viable Product (MVP) to our customers as quickly
 as possible. So we always look for [staged approaches](stages.md) to
 the development of the integration, and only plan the upcoming stage in
 great detail.
@@ -97,12 +97,22 @@ that are deployed to PCF.
 - [Developing applications](app-development.md)
 - [Binding services](service-binding.md)
 
-## Step 5. Develop your components
+## Step 5. Develop your tile
 
 Once the design is established and validated, and the first [stage](stages.md)
 has been defined, you would start actual development of your tile.
 
-## Step 6. Maintain your tile
+- Develop and test the individual components
+- Generate your tile
+- Test the deploy and delete errands
+- Deploy and test your tile
+
+## Step 6. Publish your tile
+
+- [Complete the documentation](tile-documentation.md)
+- [Work with Pivotal to publish your tile](contacts.md)
+
+## Step 7. Maintain your tile
 
 - [Set up a Concourse Server](concourse.md#server)
 - [Set up a Concourse Pipeline](concourse.md#pipeline)
