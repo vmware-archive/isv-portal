@@ -5,7 +5,6 @@ pages:
 - 'Developer Guide':
   - 'Getting Started': 'getting-started.md'
   - 'Cloud Foundry Concepts': 'cf-concepts.md'
-  - 'Integration Types': 'integration-types.md'
   - 'Stages of Integration': 'stages.md'
   - 'Development Process': 'development.md'
   - 'Documentation': 'tile-documentation.md'

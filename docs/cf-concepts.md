@@ -1,6 +1,6 @@
 # Cloud Foundry Concepts
 
-There are [many ways](integration-types.md) to integrate products with Cloud Foundry.
+There are many ways to integrate products with Cloud Foundry.
 The right one for each product depends on what the product does, and how
 customer applications consume it. To determine the best way to integrate your
 product, you'll need a good understanding of Cloud Foundry concepts
