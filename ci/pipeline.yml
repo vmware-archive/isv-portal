@@ -70,7 +70,8 @@ jobs:
           cd generated-repo
           git config user.name "CI Pipeline"
           git config user.email "ci-pipeline@localhost"
-          git commit -a -m "Pipeline published updated docs"
+          git add --all
+          git commit -m "Pipeline published updated docs"
   - put: github-pages
     params:
       repository: generated-repo
