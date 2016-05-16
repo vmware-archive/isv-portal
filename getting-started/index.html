@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Getting Started - ISV Integrations</title>
+	<title>Getting Started - ISV Portal</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">ISV Integrations</a>
+            <a class="navbar-brand" href="..">ISV Portal</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -66,6 +66,12 @@
                             
 <li class="active">
     <a href="./">Getting Started</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../cf-concepts/">Cloud Foundry Concepts</a>
 </li>
 
                         
@@ -100,6 +106,12 @@
                     </li>
                 
                 
+                
+                    <li >
+                        <a href="../contacts/">Contacts</a>
+                    </li>
+                
+                
                 </ul>
             
 
@@ -116,7 +128,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../stages/">
+                        <a rel="prev" href="../cf-concepts/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -144,9 +156,11 @@
         
             <li><a href="#step-4-validate-the-design">Step 4. Validate the design</a></li>
         
-            <li><a href="#step-5-develop-your-components">Step 5. Develop your components</a></li>
+            <li><a href="#step-5-develop-your-tile">Step 5. Develop your tile</a></li>
         
-            <li><a href="#step-6-maintain-your-tile">Step 6. Maintain your tile</a></li>
+            <li><a href="#step-6-publish-your-tile">Step 6. Publish your tile</a></li>
+        
+            <li><a href="#step-7-maintain-your-tile">Step 7. Maintain your tile</a></li>
         
     
     </ul>
@@ -161,7 +175,7 @@ with the applications they are developing on PCF.</p>
 <p>Pivotal is very supportive of these types of integrations and is committed to
 making this process as easy as possible. This site provides a <em>technical</em>
 overview on how to integrate your software with PCF. You are welcome to
-start this process on your own, or <a href="mailto:mjoseph@pivotal.io">contact us</a>
+start this process on your own, or <a href="../contacts/">contact us</a>
 to ask for our support and/or publish your integration in our
 <a href="../network.pivotal.io">marketplace</a>.</p>
 <p>There are a lot of things you will have to learn and do to complete an
@@ -172,17 +186,17 @@ progression of an integration with PCF.</p>
 The right one for each product depends on what the product does, and how
 customer applications consume it. To determine the best way to integrate your
 product, you'll need a good understanding of
-<a href="cf-concepts.md">Cloud Foundry concepts</a>
+<a href="../cf-concepts/">Cloud Foundry concepts</a>
 like applications, containers, services, brokers, and buildpacks.</p>
 <h2 id="step-1-design-the-integration">Step 1. Design the integration</h2>
 <p>With sufficient understanding of both your product, and Cloud Foundry concepts,
 you are in a position to decide what the integration looks like. Integration
 points might include:</p>
 <ul>
-<li>Service Brokers</li>
-<li>Managed Services</li>
-<li>Buidlpacks</li>
-<li>Embedded Agents</li>
+<li><a href="../service-brokers">Service Brokers</a></li>
+<li><a href="../managed-services">Managed Services</a></li>
+<li><a href="../buildpacks">Buildpacks</a></li>
+<li><a href="../embedded-agents">Embedded Agents</a></li>
 <li>Or any combination of the above</li>
 </ul>
 <p>If you are not intimately familiar with Cloud Foundry, this is one of the
@@ -201,7 +215,7 @@ how to build on or more of:</p>
 </ul>
 <p>Self-learning is definitely possible. If you are interested in more
 organized learning, Pivotal provides many different classes and labs for
-partners and customers. <a href="mailto:mjoseph@pivotal.io">Contact us</a>
+partners and customers. <a href="../contacts/">Contact us</a>
 if your are interested in learning more about this.</p>
 <h2 id="step-3-set-up-a-test-environment">Step 3. Set up a test environment</h2>
 <p>Once you move into development, you will need access to a PCF environment.
@@ -220,7 +234,7 @@ offline, you can set up a PCF environment on:</p>
 </ul>
 <h2 id="step-4-validate-the-design">Step 4. Validate the design</h2>
 <p>Pivotal is a strong believer in lean and agile development and the notion
-of delivering a Minimally Viable Product (MVP) to our customers as quickly
+of delivering a Minimal Viable Product (MVP) to our customers as quickly
 as possible. So we always look for <a href="../stages/">staged approaches</a> to
 the development of the integration, and only plan the upcoming stage in
 great detail.</p>
@@ -238,10 +252,21 @@ that are deployed to PCF.</p>
 <li><a href="app-development.md">Developing applications</a></li>
 <li><a href="service-binding.md">Binding services</a></li>
 </ul>
-<h2 id="step-5-develop-your-components">Step 5. Develop your components</h2>
+<h2 id="step-5-develop-your-tile">Step 5. Develop your tile</h2>
 <p>Once the design is established and validated, and the first <a href="../stages/">stage</a>
 has been defined, you would start actual development of your tile.</p>
-<h2 id="step-6-maintain-your-tile">Step 6. Maintain your tile</h2>
+<ul>
+<li>Develop and test the individual components</li>
+<li>Generate your tile</li>
+<li>Test the deploy and delete errands</li>
+<li>Deploy and test your tile</li>
+</ul>
+<h2 id="step-6-publish-your-tile">Step 6. Publish your tile</h2>
+<ul>
+<li><a href="tile-documentation.md">Complete the documentation</a></li>
+<li><a href="../contacts/">Work with Pivotal to publish your tile</a></li>
+</ul>
+<h2 id="step-7-maintain-your-tile">Step 7. Maintain your tile</h2>
 <ul>
 <li><a href="concourse.md#server">Set up a Concourse Server</a></li>
 <li><a href="concourse.md#pipeline">Set up a Concourse Pipeline</a></li>

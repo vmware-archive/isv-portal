@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-05-13</lastmod>
+     <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,19 @@
         
     <url>
      <loc>None/getting-started/</loc>
-     <lastmod>2016-05-13</lastmod>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/cf-concepts/</loc>
+     <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/stages/</loc>
-     <lastmod>2016-05-13</lastmod>
+     <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -29,16 +35,24 @@
         
     <url>
      <loc>None/tile-generator/</loc>
-     <lastmod>2016-05-13</lastmod>
+     <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/pcf-command/</loc>
-     <lastmod>2016-05-13</lastmod>
+     <lastmod>2016-05-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+    <url>
+     <loc>None/contacts/</loc>
+     <lastmod>2016-05-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
     
 
 </urlset>
