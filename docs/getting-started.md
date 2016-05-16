@@ -10,7 +10,7 @@ making this process as easy as possible. This site provides a *technical*
 overview on how to integrate your software with PCF. You are welcome to
 start this process on your own, or [contact us](contacts.md)
 to ask for our support and/or publish your integration in our
-[marketplace](network.pivotal.io).
+[marketplace](http://network.pivotal.io).
 
 There are a lot of things you will have to learn and do to complete an
 integration with Cloud Foundry. This page attempts to lay out a typical
