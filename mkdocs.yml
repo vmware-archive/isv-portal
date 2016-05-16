@@ -5,10 +5,25 @@ pages:
 - 'Developer Guide':
   - 'Getting Started': 'getting-started.md'
   - 'Cloud Foundry Concepts': 'cf-concepts.md'
+  - 'Integration Types': 'integration-types.md'
   - 'Stages of Integration': 'stages.md'
+  - 'Development Process': 'development.md'
+  - 'Documentation': 'tile-documentation.md'
+  - 'Continuous Integration': 'concourse.md'
 - 'Reference':
-  - 'Tile Generator': 'tile-generator.md'
-  - 'PCF Command': 'pcf-command.md'
+  - 'Commands':
+    - 'Tile Generator': 'tile-generator.md'
+    - 'PCF Command': 'pcf-command.md'
+    - 'Concourse': 'concourse.md'
+  - 'Components':
+    - 'Service Brokers': 'service-brokers.md'
+    - 'Managed Services': 'managed-services.md'
+    - 'Dynamic Services': 'dynamic-services.md'
+    - 'Buildpacks': 'buildpacks.md'
+    - 'Embedded Agents': 'embedded-agents.md'
+  - 'Setup':
+    - 'PCF Dev': 'setup-pcfdev.md'
+    - 'PCF': 'setup-pcf.md'
 - 'Contacts': 'contacts.md'
 
 markdown_extensions:

@@ -31,10 +31,10 @@ With sufficient understanding of both your product, and Cloud Foundry concepts,
 you are in a position to decide what the integration looks like. Integration
 points might include:
 
-- [Service Brokers](service-brokers)
-- [Managed Services](managed-services)
-- [Buildpacks](buildpacks)
-- [Embedded Agents](embedded-agents)
+- [Service Brokers](cf-concepts.md#service-brokers)
+- [Managed Services](stages.md#managed)
+- [Buildpacks](cf-concepts.md#buildpacks)
+- [Embedded Agents](cf-concepts.md#agents)
 - Or any combination of the above
 
 If you are not intimately familiar with Cloud Foundry, this is one of the
@@ -66,13 +66,13 @@ environments that are operated and managed by Pivotal. If you are not (yet)
 in our program, need a dedicated environment, or want to be able to work
 offline, you can set up a PCF environment on:
 
-- [Developer desktop/laptop](pcf-dev.md)
-- [Supported public or private infrastructure (IaaS)](pcf-iaas.md)
+- [Developer desktop/laptop](setup-pcfdev.md)
+- [Supported public or private infrastructure (IaaS)](setup-pcf.md#setup)
 
 You will then also need to learn to operate and upgrade PCF by yourself:
 
-- [Operating a PCF environment](pcf-operations.md)
-- [Upgrading a PCF environment](pcf-upgrade.md)
+- [Operating a PCF environment](setup-pcf.md#operations)
+- [Upgrading a PCF environment](setup-pcf.md#upgrade)
 
 ## Step 4. Validate the design
 
@@ -94,18 +94,18 @@ A critical component to this step is the development of consuming
 applications. Those can be real customer applications, or test applications
 that are deployed to PCF.
 
-- [Developing applications](app-development.md)
-- [Binding services](service-binding.md)
+- [Developing applications](cf-concepts.md#applications)
+- [Binding services](cf-concepts.md#services)
 
 ## Step 5. Develop your tile
 
 Once the design is established and validated, and the first [stage](stages.md)
 has been defined, you would start actual development of your tile.
 
-- Develop and test the individual components
-- Generate your tile
-- Test the deploy and delete errands
-- Deploy and test your tile
+- [Develop and test the individual components](development.md#components)
+- [Generate your tile](development.md#tile-generator)
+- [Test the deploy and delete errands](development.md#test-errands)
+- [Deploy and test your tile](development.md#deploy)
 
 ## Step 6. Publish your tile
 

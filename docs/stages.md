@@ -52,12 +52,15 @@ developer perspective, once this works, later stages will not require any
 further code changes. User-provided service bindings are fully compatible with
 brokered service bindings.
 
+<a name="broker"></a> 
 ## Stage 2. Brokered Service
 
+<a name="managed"></a> 
 ## Stage 3. Managed Service
 
 ## Stage 3b. High Availability
 
+<a name="dynamic"></a> 
 ## Stage 4. Dynamic Service
 
 ## Stage 4b. High Availability

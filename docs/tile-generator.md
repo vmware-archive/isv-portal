@@ -314,8 +314,6 @@ If a docker image cannot be downloaded by BOSH dynamically, its better to provid
       - "custom_variable_name=((.properties.customer_name.value))"
 </pre>
 
-Also, refer to [docker-bosh](docs/docker-bosh.md) for more details.
-
 ### Custom Forms and Properties
 
 You can pass custom properties to all applications deployed by your tile by adding
@@ -487,6 +485,17 @@ tile build <new-version>
 ```
 
 The new tile will then support upgrades from `old-version`.
+
+<a name="upgrades"></a> 
+## Upgrades
+
+By default, tile generator produces all code necessary to do a blue/green,
+zero-downtime deployment of all tile components when installing a newer version
+over an older one. For most tile versions this will be all that is needed.
+
+Ops Manager has support for performing upgrade actions, like database migrations,
+during a tile upgrade, but this capability is not yet exposed through tile
+generator.
 
 ## Example
 
