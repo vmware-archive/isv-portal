@@ -7,21 +7,21 @@ resources:
   source:
     paths: [ "mkdocs.yml", "docs" ]
     branch: master
-    uri: http://github.com/cf-platform-eng/isv-integrations.git
+    uri: http://github.com/cf-platform-eng/isv-portal.git
 
 - name: github-pages
   type: git
   source:
     branch: gh-pages
-    uri: git@github.com:cf-platform-eng/isv-integrations.git
+    uri: git@github.com:cf-platform-eng/isv-portal.git
     private_key: {{github-pages-private-key}}
 
 - name: dockerfile-repo
   type: git
   source:
-    paths: [ "ci/Dockerfile", "ci/requirements.txt" ]
+    paths: [ "ci/Dockerfile" ]
     branch: master
-    uri: http://github.com/cf-platform-eng/isv-integrations.git
+    uri: http://github.com/cf-platform-eng/isv-portal.git
 
 - name: ci-docker-image
   type: docker-image
