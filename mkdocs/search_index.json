@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/cf-concepts/", 
-            "text": "Cloud Foundry Concepts\n\n\nThere are many ways to integrate products with Cloud Foundry.\nThe right one for each product depends on what the product does, and how\ncustomer applications consume it. To determine the best way to integrate your\nproduct, you'll need a good understanding of Cloud Foundry concepts\nlike applications, containers, services, brokers, and buildpacks.\n\n\nThis page provides a collection of links to documentation for the most relevant\nconcepts. If you prefer to learn through guided training,\n\nask us\n about available training options.\n\n\nGeneral Overview\n\n\n\n\nCloud Foundry Subsystems\n\n\nCloud Foundry Command Line Interface\n\n\nDeploying Applications\n\n\nPivotal Ops Manager\n\n\nPivotal Apps Manager\n\n\n\n\n \n\n\nApplications\n\n\n \n\n\nServices\n\n\nTODO - Explain Service Concepts\n\n\n \n\n\nBuildpacks\n\n\nTODO - Explain Buildpack Concepts\n\n\n \n\n\nContainers\n\n\nTODO - Explain Container Concepts\n\n\n \n\n\nAgents\n\n\nTODO - Explain Container-Embedded Agent Concepts", 
+            "text": "Cloud Foundry Concepts\n\n\nThere are many ways to integrate products with Cloud Foundry.\nThe right one for each product depends on what the product does, and how\ncustomer applications consume it. To determine the best way to integrate your\nproduct, you'll need a good understanding of Cloud Foundry concepts\nlike applications, containers, services, brokers, and buildpacks.\n\n\nThis page provides a collection of links to documentation for the most relevant\nconcepts. If you prefer to learn through guided training,\n\nask us\n about available training options.\n\n\nGeneral Overview\n\n\nFor general overview of CLoud Foundry, and the various ways to interact with it,\nuse the following links:\n\n\n\n\nCloud Foundry Subsystems\n\n\nCloud Foundry Command Line Interface\n\n\nPivotal Ops Manager\n\n\nPivotal Apps Manager\n\n\n\n\n \n\n\nApplications\n\n\nCloud Foundry is primarily a cloud native application platform. To understand how to\nintegrate your services with Cloud Foundry, it is important to understand how your\ncustomers are using the platform to develop, deploy, and operate their applications:\n\n\n\n\nDeploying Applications\n\n\nLogging and Monitoring\n\n\n\n\n \n\n\nServices\n\n\nMost value-add integrations are done by exposing your software to customer applications\nas services. To understand the service concepts, and what a service integration\nlooks like, read the following documentation:\n\n\n\n\nServices Overview\n\n\nCustom Services\n\n\n\n\n \n\n\nBuildpacks\n\n\nWhen application code is deployed to Cloud Foundry, it is processed by a language-specific\nbuildpack. Language buildpacks provide a convenient integration hook for any service that\nneeds to inspect or embellish application code. The meta-buildpack also provides a\nlanguage-agnostic way to inject your code into the application container image.\n\n\n\n\nApplication Staging Process\n\n\nLanguage Buildpacks\n\n\nMeta Buildpack\n\n\n\n\n \n\n\nEmbedded Agents\n\n\nSome integrations depend on the ability to inject code into the application container.\nWe refer to these injected components as \"container-embedded agents\".\n\nBuildpacks\n provide a mechanism to inject components into the application\ncontainer image, and the \n.profile.d\n directory provides a way to start agents before or\nalongside the customer application.\n\n\n\n\nAgent Injection with the meta-buildpack\n\n\nUsing .profile.d", 
             "title": "Cloud Foundry Concepts"
         }, 
         {
@@ -72,33 +72,28 @@
         }, 
         {
             "location": "/cf-concepts/#general-overview", 
-            "text": "Cloud Foundry Subsystems  Cloud Foundry Command Line Interface  Deploying Applications  Pivotal Ops Manager  Pivotal Apps Manager", 
+            "text": "For general overview of CLoud Foundry, and the various ways to interact with it,\nuse the following links:   Cloud Foundry Subsystems  Cloud Foundry Command Line Interface  Pivotal Ops Manager  Pivotal Apps Manager", 
             "title": "General Overview"
         }, 
         {
             "location": "/cf-concepts/#applications", 
-            "text": "", 
+            "text": "Cloud Foundry is primarily a cloud native application platform. To understand how to\nintegrate your services with Cloud Foundry, it is important to understand how your\ncustomers are using the platform to develop, deploy, and operate their applications:   Deploying Applications  Logging and Monitoring", 
             "title": "Applications"
         }, 
         {
             "location": "/cf-concepts/#services", 
-            "text": "TODO - Explain Service Concepts", 
+            "text": "Most value-add integrations are done by exposing your software to customer applications\nas services. To understand the service concepts, and what a service integration\nlooks like, read the following documentation:   Services Overview  Custom Services", 
             "title": "Services"
         }, 
         {
             "location": "/cf-concepts/#buildpacks", 
-            "text": "TODO - Explain Buildpack Concepts", 
+            "text": "When application code is deployed to Cloud Foundry, it is processed by a language-specific\nbuildpack. Language buildpacks provide a convenient integration hook for any service that\nneeds to inspect or embellish application code. The meta-buildpack also provides a\nlanguage-agnostic way to inject your code into the application container image.   Application Staging Process  Language Buildpacks  Meta Buildpack", 
             "title": "Buildpacks"
         }, 
         {
-            "location": "/cf-concepts/#containers", 
-            "text": "TODO - Explain Container Concepts", 
-            "title": "Containers"
-        }, 
-        {
-            "location": "/cf-concepts/#agents", 
-            "text": "TODO - Explain Container-Embedded Agent Concepts", 
-            "title": "Agents"
+            "location": "/cf-concepts/#embedded-agents", 
+            "text": "Some integrations depend on the ability to inject code into the application container.\nWe refer to these injected components as \"container-embedded agents\". Buildpacks  provide a mechanism to inject components into the application\ncontainer image, and the  .profile.d  directory provides a way to start agents before or\nalongside the customer application.   Agent Injection with the meta-buildpack  Using .profile.d", 
+            "title": "Embedded Agents"
         }, 
         {
             "location": "/stages/", 
@@ -467,13 +462,18 @@
         }, 
         {
             "location": "/contacts/", 
-            "text": "Contact Us\n\n\nProgram Manager: \nMarina Joseph\n\n\nBusiness Development: \nNima Badiey\n\n\nPlatform Engineering: \nGuido Westenberg", 
+            "text": "Contact Us\n\n\nTo learn more about the Pivotal IVS Partner Program, or to request\nour assistance with your integration project, please contact us at\none of the following addresses:\n\n\n\n\nProgram Manager: \nMarina Joseph\n\n\nBusiness Development: \nNima Badiey\n\n\nPlatform Engineering: \nGuido Westenberg\n\n\n\n\nContributions\n\n\nThe source code for this site is in a public\n\nGithub repository\n.\n\n\nWe greatly appreciate contributions to the content in the form of pull\nrequests, as well as Github issues with corrections, comments, or\nsuggestions.\n\n\nThe Github Pages site is created from the Markdown source files using\n\nmkdocs\n. To preview your changes, run the\ncommand \nmkdocs serve\n in the root directory of your local git clone\nof this repository.", 
             "title": "Contacts"
         }, 
         {
             "location": "/contacts/#contact-us", 
-            "text": "Program Manager:  Marina Joseph  Business Development:  Nima Badiey  Platform Engineering:  Guido Westenberg", 
+            "text": "To learn more about the Pivotal IVS Partner Program, or to request\nour assistance with your integration project, please contact us at\none of the following addresses:   Program Manager:  Marina Joseph  Business Development:  Nima Badiey  Platform Engineering:  Guido Westenberg", 
             "title": "Contact Us"
+        }, 
+        {
+            "location": "/contacts/#contributions", 
+            "text": "The source code for this site is in a public Github repository .  We greatly appreciate contributions to the content in the form of pull\nrequests, as well as Github issues with corrections, comments, or\nsuggestions.  The Github Pages site is created from the Markdown source files using mkdocs . To preview your changes, run the\ncommand  mkdocs serve  in the root directory of your local git clone\nof this repository.", 
+            "title": "Contributions"
         }
     ]
 }

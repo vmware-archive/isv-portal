@@ -247,7 +247,7 @@
         
             <li><a href="#buildpacks">Buildpacks</a></li>
         
-            <li><a href="#containers">Containers</a></li>
+            <li><a href="#embedded-agents">Embedded Agents</a></li>
         
     
     </ul>
@@ -264,27 +264,54 @@ like applications, containers, services, brokers, and buildpacks.</p>
 concepts. If you prefer to learn through guided training,
 <a href="mailto:mjoseph@pivotal.io">ask us</a> about available training options.</p>
 <h2 id="general-overview">General Overview</h2>
+<p>For general overview of CLoud Foundry, and the various ways to interact with it,
+use the following links:</p>
 <ul>
 <li><a href="http://docs.pivotal.io/pivotalcf/concepts/overview.html">Cloud Foundry Subsystems</a></li>
 <li><a href="http://docs.pivotal.io/pivotalcf/cf-cli/index.html">Cloud Foundry Command Line Interface</a></li>
-<li><a href="http://docs.pivotal.io/pivotalcf/devguide/index.html">Deploying Applications</a></li>
 <li><a href="http://docs.pivotal.io/pivotalcf/customizing/pcf-interface.html">Pivotal Ops Manager</a></li>
 <li><a href="http://docs.pivotal.io/pivotalcf/console/index.html">Pivotal Apps Manager</a></li>
 </ul>
 <p><a name="applications"></a> </p>
 <h2 id="applications">Applications</h2>
+<p>Cloud Foundry is primarily a cloud native application platform. To understand how to
+integrate your services with Cloud Foundry, it is important to understand how your
+customers are using the platform to develop, deploy, and operate their applications:</p>
+<ul>
+<li><a href="http://docs.pivotal.io/pivotalcf/devguide/index.html">Deploying Applications</a></li>
+<li><a href="http://docs.pivotal.io/pivotalcf/loggregator/index.html">Logging and Monitoring</a></li>
+</ul>
 <p><a name="services"></a> </p>
 <h2 id="services">Services</h2>
-<p>TODO - Explain Service Concepts</p>
+<p>Most value-add integrations are done by exposing your software to customer applications
+as services. To understand the service concepts, and what a service integration
+looks like, read the following documentation:</p>
+<ul>
+<li><a href="http://docs.pivotal.io/pivotalcf/devguide/services/index.html">Services Overview</a></li>
+<li><a href="http://docs.pivotal.io/pivotalcf/services/index.html">Custom Services</a></li>
+</ul>
 <p><a name="buildpacks"></a> </p>
 <h2 id="buildpacks">Buildpacks</h2>
-<p>TODO - Explain Buildpack Concepts</p>
-<p><a name="containers"></a> </p>
-<h2 id="containers">Containers</h2>
-<p>TODO - Explain Container Concepts</p>
+<p>When application code is deployed to Cloud Foundry, it is processed by a language-specific
+buildpack. Language buildpacks provide a convenient integration hook for any service that
+needs to inspect or embellish application code. The meta-buildpack also provides a
+language-agnostic way to inject your code into the application container image.</p>
+<ul>
+<li><a href="http://docs.pivotal.io/pivotalcf/concepts/how-applications-are-staged.html">Application Staging Process</a></li>
+<li><a href="http://docs.pivotal.io/pivotalcf/buildpacks/index.html">Language Buildpacks</a></li>
+<li><a href="https://github.com/guidowb/meta-buildpack">Meta Buildpack</a></li>
+</ul>
 <p><a name="agents"></a> </p>
-<h3 id="agents">Agents</h3>
-<p>TODO - Explain Container-Embedded Agent Concepts</p></div>
+<h2 id="embedded-agents">Embedded Agents</h2>
+<p>Some integrations depend on the ability to inject code into the application container.
+We refer to these injected components as "container-embedded agents".
+<a href="#buildpacks">Buildpacks</a> provide a mechanism to inject components into the application
+container image, and the <code>.profile.d</code> directory provides a way to start agents before or
+alongside the customer application.</p>
+<ul>
+<li><a href="https://github.com/guidowb/meta-buildpack">Agent Injection with the meta-buildpack</a></li>
+<li><a href="http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html#profiled">Using .profile.d</a></li>
+</ul></div>
             
         </div>
 
