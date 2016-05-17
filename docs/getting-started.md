@@ -88,7 +88,7 @@ can often emulate the availability of a brokered, managed, or dynamic
 service by setting up a [user-provided service](stages.md#ups)
 for an existing instance of your service. That will let you validate
 the integration design before you make a large development investment,
-and it will let real consumers weigh in development priorities.
+and it will let real consumers weigh in on development priorities.
 
 A critical component to this step is the development of consuming
 applications. Those can be real customer applications, or test applications
