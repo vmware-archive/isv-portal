@@ -181,18 +181,24 @@
         
             
 <li >
-    <a href="../setup-pcfdev/">PCF Dev</a>
+    <a href="../setup-pcfdev/">Developer Environment</a>
 </li>
 
         
             
 <li >
-    <a href="../setup-pcf/">PCF</a>
+    <a href="../setup-pcf/">Full PCF Environment</a>
 </li>
 
         
     </ul>
   </li>
+
+                        
+                            
+<li >
+    <a href="../troubleshooting/">Troubleshooting</a>
+</li>
 
                         
                         </ul>
@@ -239,13 +245,61 @@
     
         <li class="main active"><a href="#how-to-build-a-managed-service">How to Build a Managed Service</a></li>
         
+            <li><a href="#bosh-overview">BOSH overview</a></li>
+        
+            <li><a href="#creating-a-bosh-release">Creating a BOSH Release</a></li>
+        
+            <li><a href="#shortcut-start-with-docker-images">Shortcut - Start with Docker images</a></li>
+        
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="how-to-build-a-managed-service">How to Build a Managed Service</h1>
-<p>TODO - Explain how to build a bosh managed service with persistence, ideally with tile generator</p></div>
+<p>A managed service is a service deployed on Cloud Foundry infrastructure
+(in other words, the same IaaS that yoru particular Cloud Foundry instance
+is deployed on) by the same orchestration tool, <a href="http://bosh.io">bosh</a>.
+Offering your sfotware as a managed service means that your PCF customers
+will not have to learn different ways to deploy, manage, and monitor
+different components of their application platform.</p>
+<p>For bosh to manage your service, the major components needed are:</p>
+<ul>
+<li><strong>Packages</strong> that can be installed on PCF stemcells to create virtual machine images</li>
+<li><strong>Jobs</strong> that describe how to install, run, and remove your software</li>
+<li>A <strong>Monitor</strong> script, that describes how to monitor the health of your
+service components and stop or restart them</li>
+</ul>
+<h2 id="bosh-overview">BOSH overview</h2>
+<ul>
+<li><a href="http://bosh.io/docs">BOSH Documentation</a></li>
+<li><a href="http://bosh.io/docs/problems.html">BOSH Problem Statement</a></li>
+<li><a href="http://bosh.io/docs/basic-workflow.html">BOSH Basic Workflow</a></li>
+</ul>
+<h2 id="creating-a-bosh-release">Creating a BOSH Release</h2>
+<ul>
+<li><a href="http://bosh.io/docs/create-release.html">Creating a Release</a></li>
+<li><a href="http://bosh.io/docs/jobs.html">Defining your Jobs</a></li>
+<li><a href="http://bosh.io/docs/vm-struct.html">Defining your VMs</a></li>
+<li><a href="http://bosh.io/docs/monitoring.html">Monitoring the Health of your Service</a></li>
+</ul>
+<h2 id="shortcut-start-with-docker-images">Shortcut - Start with Docker images</h2>
+<p>If you have already packaged your service as docker images, you can emulate
+a managed service deployment using the <a href="../tile-generator/">Tile Generator</a>'s
+support for docker-bosh packages. This feature lets you deploy pre-existing
+docker images into bash managed virtual machines on the PCF infrastructure.</p>
+<p>While this is a great, easy way to deploy your service on PCF, we don't
+recommend this as a long-term, production-ready solution. There is really no
+benefit of running your service in containers on the VMs, and it does have
+a number of operational ("day 2") drawbacks:</p>
+<ul>
+<li>You introduce more software (docker) which needs to be kept up-to-date, and
+has the potential for bugs, downtime, and security vulnerabilities.</li>
+<li>You can no longer take advantage of the patching capabilities of PCF for
+stemcells and application dependencies, like frameworks and libraries. Instead,
+you become directly responsible for managing all software that is in the docker
+images you deploy.</li>
+</ul></div>
             
         </div>
 

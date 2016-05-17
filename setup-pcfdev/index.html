@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>PCF Dev - ISV Portal</title>
+	<title>Developer Environment - ISV Portal</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -181,18 +181,24 @@
         
             
 <li class="active">
-    <a href="./">PCF Dev</a>
+    <a href="./">Developer Environment</a>
 </li>
 
         
             
 <li >
-    <a href="../setup-pcf/">PCF</a>
+    <a href="../setup-pcf/">Full PCF Environment</a>
 </li>
 
         
     </ul>
   </li>
+
+                        
+                            
+<li >
+    <a href="../troubleshooting/">Troubleshooting</a>
+</li>
 
                         
                         </ul>
@@ -237,17 +243,45 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#light-weight-pcf-developer-environment">Light-Weight PCF Developer Environment</a></li>
+        <li class="main active"><a href="#pcf-developer-environment">PCF Developer Environment</a></li>
+        
+            <li><a href="#setting-up-pcf-dev">Setting up PCF Dev</a></li>
+        
+            <li><a href="#setting-up-bosh-lite">Setting up bosh-lite</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="light-weight-pcf-developer-environment">Light-Weight PCF Developer Environment</h1>
-<p>TODO - Explain how to set up a light-weight PCF development environment on a laptop using
-pcfdev and bosh-lite, and how to use it for dev/test of bosh releases</p>
-<p><a href="https://network.pivotal.io/products/pcfdev">Download PCFDev</a></p></div>
+<h1 id="pcf-developer-environment">PCF Developer Environment</h1>
+<p>Pivotal provides a light-weight (vagrant packaged) instance of PCF with some
+basic services as a free product named PCF Dev. This is a great environment
+to develop and test everything that runs in the Cloud Foundry Elastic Runtime.</p>
+<p>If your integration includes managed services, you will also need an instance
+of bosh that can manage virtual machines and bosh releases for you.
+<a href="https://github.com/cloudfoundry/bosh-lite">bosh-lite</a> works well for that
+purpose.</p>
+<p>Between these two components, you will have everything you need to develop
+tiles, except for Pivotal's Ops Manager. But if you followed the recommended
+<a href="../development/">staged development approach</a> you will not need an actual full
+PCF environment until the later phases of your development.</p>
+<h2 id="setting-up-pcf-dev">Setting up PCF Dev</h2>
+<ul>
+<li><a href="https://network.pivotal.io/products/pcfdev">Download PCF Dev</a></li>
+<li><a href="https://docs.pivotal.io/pcf-dev/">Install and Using PCF Dev</a></li>
+</ul>
+<h2 id="setting-up-bosh-lite">Setting up bosh-lite</h2>
+<ul>
+<li><a href="https://github.com/cloudfoundry/bosh-lite">Install bosh-lite</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note:</p>
+<p>For this type of development environment, you only need bosh-lite
+itself to deploy managed service releases. You do <strong>not</strong> need to follow the
+instructions to Deploy Cloud Foundry in bosh-lite, as Cloud Foundry is
+provided by the PCF Dev installation above.</p>
+</div></div>
             
         </div>
 

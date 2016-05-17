@@ -181,18 +181,24 @@
         
             
 <li >
-    <a href="../setup-pcfdev/">PCF Dev</a>
+    <a href="../setup-pcfdev/">Developer Environment</a>
 </li>
 
         
             
 <li >
-    <a href="../setup-pcf/">PCF</a>
+    <a href="../setup-pcf/">Full PCF Environment</a>
 </li>
 
         
     </ul>
   </li>
+
+                        
+                            
+<li >
+    <a href="../troubleshooting/">Troubleshooting</a>
+</li>
 
                         
                         </ul>
@@ -245,7 +251,21 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="how-to-build-an-embedded-agent">How to Build an Embedded Agent</h1>
-<p>TODO - Explain how to build a container-embedded agent, and deploy it through a buildpack and .profile.d</p></div>
+<p>Some integrations depend on the ability to inject code into the application container.
+Examples of this include:</p>
+<ul>
+<li>Application Performance Monitoring (APM) agents</li>
+<li>Container-embedded API gateways</li>
+<li>Client-side routers</li>
+</ul>
+<p>We refer to these injected components as "container-embedded agents".
+<a href="../buildpacks/">Buildpacks</a> provide a mechanism to inject components into the application
+container image, and the <code>.profile.d</code> directory provides a way to start agents before or
+alongside the customer application.</p>
+<ul>
+<li><a href="https://github.com/guidowb/meta-buildpack">Agent Injection with the meta-buildpack</a></li>
+<li><a href="http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html#profiled">Using .profile.d</a></li>
+</ul></div>
             
         </div>
 

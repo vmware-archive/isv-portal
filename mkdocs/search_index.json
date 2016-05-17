@@ -167,23 +167,93 @@
         }, 
         {
             "location": "/tile-documentation/", 
-            "text": "Tile Documentation\n\n\nTODO - Describe required tile documentation and incorporate the template", 
+            "text": "Tile Documentation Template\n\n\nThis document offers a template for preparing documentation for partner services that appear on PivNet. The documentation will be posted on the front page of \nhttp://docs.pivotal.io\n\nunder \u201cPartner Services for Pivotal Cloud Foundry.\u201d\n\n\nWhile the specifics will vary depending on the product, we have provided a basic blueprint below. At minimum, documentation should include #1 (Overview) and #2 (Installing/Configuring).\n\n\nFor a good example of a partner service doc, see the\n\nJFrog Artifactory docs\n.\n\n\nIf you have questions or want to collaborate on drafting the documentation, feel free to hop on our Slack channel #pcf-docs. We\u2019re always happy to help!\n\n\nOverview\n\n\nGeneral overview of Partner Product. What does it do? What are its features?\n\n\nKey Features\n\n\n\n\nFeature one\n\n\nFeature two\n\n\nFeature three\n\n\n\n\nPartner Service Broker\n\n\nA Service Broker allows Cloud Foundry applications to bind to services and consume the services easily from App Manager UI or command line. The Partner Service Broker will enable you to use one or more Partner accounts and is deployed as a Java Application on Cloud Foundry. The Broker exposes the Partner service on the Cloud Foundry Marketplace and allows users to directly create a service instance and bind it to their applications either from the Pivotal Apps Manager Console or from the command line. \n\n\nThe PCF (Pivotal Cloud Foundry) Tile for Partner installs the Partner Service Broker as an application and registers it as a Service Broker on Cloud Foundry and exposes its service plans on the Marketplace.  This makes the installation and subsequent use of Partner on your Cloud Foundry applications simple and easy. \n\n\nIf trial license available =\n Customers interested in using Partner can obtain a 60 day free trial license from edit link here.\n\n\nProduct Snapshot\n\n\nCurrent Partner Tile for Pivotal Cloud Foundry Details:\n\n\n\n\nVersion:\n\n\nRelease Date: \n\n\nSoftware components versions: Partner product version\n\n\nCompatible Ops Manager Version(s): 1.5.x, 1.6.x\n\n\nCompatible Elastic Runtime Version(s): 1.4.x, 1.5.x, 1.6.x\n\n\n\n\nRequirements\n\n\n(or Prerequisites, Packaging Dependencies for Offline Buildpacks, etc.)\n\n\nProvide any general or specific requirements here. A general requirement might be something like, \u201cAn AppDynamics account.\u201d A specific requirement might be something like, \u201cPackaging Dependencies for Offline Buildpacks.\u201d\n\n\nLimitations\n\n\nAny known limitations.\n\n\nFeedback\n\n\nPlease provide any bugs, feature requests, or questions to the Pivotal Cloud Foundry Feedback list.\n\n\nInstalling / Configuring the Tile\n\n\nThis topic provides instructions for how to install and configure the tile. Typically this includes procedures for how to download the tile from PivNet, install it on Ops Manager, configure the tile, and do any required third-party configuration. Screenshots should be provided where necessary. Consult the following format:\n\n\nInstall via Pivotal Ops Manager\n\n\n\n\nDownload the product file from Pivotal Network (edit link).\n\n\nUpload the product file to your Ops Manager installation.\n\n\nClick Add next to the uploaded product description in the Ops Manager Available Products view to add this product to your staging area.\n\n\nClick the newly added tile to review any configurable options.\n\n\nClick Apply Changes to install the service.\n\n\n\n\nUpgrading to the Latest Version\n\n\nIf there are any specific instructions for upgrading the tile, you can include those here. If the procedures are complicated, create a new Upgrading topic.\n\n\nConfiguring the Partner Tile\n\n\n(add snapshots for each step when possible or add details as required)\n\n\n\n\nLogin into Pivotal Ops Manager \n\n\nClick on \u201cImport a Product\u201d and import the Partner Tile\n\n\nSelect the Partner option\n\n\nClick Add on the Partner Tile\n\n\nSelect the Partner Tile\n\n\nConfigure the Partner Tile\n\n\nApply your changes.\n\n\n\n\nOn completion of Partner Tile install, check Services Marketplace in Apps Manager\n\n\n\n\nView Partner Service Plans\n\n\nBind the Partner Service to an Application\n\n\nCheck the service or dashboard for the partner for more data\u2026\n\n\n\n\nOther Configurations / Third-Party Configurations\n\n\nProvide information for specific configurations like configuring for HTTP proxy, or doing any necessary configurations on a third-party service portal.\n\n\nUsing the Tile\n\n\nThis topic provides instructions for how to use the tile. Typically this includes \nprocedures for how to perform the different functions offered by the service. Screenshots should be provided where necessary. You can also include information about Architecture here if necessary.\n\n\nTroubleshooting\n\n\nThis topic provides troubleshooting information for known errors, following the Symptom/Explanation format used here:\n\nhttp://docs.pivotal.io/p-identity/okta/troubleshooting.html\n\n\nRelease Notes\n\n\nInclude the release notes as the final topic, following the format below. For reference, see the\n\nJFrog Artifactory Release Notes\n.\n\n\n\n\nVersion number:\n\n\nRelease date:\n\n\n\n\nFeatures included in this release:\n\n\n\n\nFirst feature.\n\n\nSecond feature.\n\n\nThird feature.", 
             "title": "Documentation"
         }, 
         {
-            "location": "/tile-documentation/#tile-documentation", 
-            "text": "TODO - Describe required tile documentation and incorporate the template", 
-            "title": "Tile Documentation"
+            "location": "/tile-documentation/#tile-documentation-template", 
+            "text": "This document offers a template for preparing documentation for partner services that appear on PivNet. The documentation will be posted on the front page of  http://docs.pivotal.io \nunder \u201cPartner Services for Pivotal Cloud Foundry.\u201d  While the specifics will vary depending on the product, we have provided a basic blueprint below. At minimum, documentation should include #1 (Overview) and #2 (Installing/Configuring).  For a good example of a partner service doc, see the JFrog Artifactory docs .  If you have questions or want to collaborate on drafting the documentation, feel free to hop on our Slack channel #pcf-docs. We\u2019re always happy to help!", 
+            "title": "Tile Documentation Template"
+        }, 
+        {
+            "location": "/tile-documentation/#overview", 
+            "text": "General overview of Partner Product. What does it do? What are its features?  Key Features   Feature one  Feature two  Feature three", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/tile-documentation/#partner-service-broker", 
+            "text": "A Service Broker allows Cloud Foundry applications to bind to services and consume the services easily from App Manager UI or command line. The Partner Service Broker will enable you to use one or more Partner accounts and is deployed as a Java Application on Cloud Foundry. The Broker exposes the Partner service on the Cloud Foundry Marketplace and allows users to directly create a service instance and bind it to their applications either from the Pivotal Apps Manager Console or from the command line.   The PCF (Pivotal Cloud Foundry) Tile for Partner installs the Partner Service Broker as an application and registers it as a Service Broker on Cloud Foundry and exposes its service plans on the Marketplace.  This makes the installation and subsequent use of Partner on your Cloud Foundry applications simple and easy.   If trial license available =  Customers interested in using Partner can obtain a 60 day free trial license from edit link here.", 
+            "title": "Partner Service Broker"
+        }, 
+        {
+            "location": "/tile-documentation/#product-snapshot", 
+            "text": "Current Partner Tile for Pivotal Cloud Foundry Details:   Version:  Release Date:   Software components versions: Partner product version  Compatible Ops Manager Version(s): 1.5.x, 1.6.x  Compatible Elastic Runtime Version(s): 1.4.x, 1.5.x, 1.6.x", 
+            "title": "Product Snapshot"
+        }, 
+        {
+            "location": "/tile-documentation/#requirements", 
+            "text": "(or Prerequisites, Packaging Dependencies for Offline Buildpacks, etc.)  Provide any general or specific requirements here. A general requirement might be something like, \u201cAn AppDynamics account.\u201d A specific requirement might be something like, \u201cPackaging Dependencies for Offline Buildpacks.\u201d", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/tile-documentation/#limitations", 
+            "text": "Any known limitations.", 
+            "title": "Limitations"
+        }, 
+        {
+            "location": "/tile-documentation/#feedback", 
+            "text": "Please provide any bugs, feature requests, or questions to the Pivotal Cloud Foundry Feedback list.", 
+            "title": "Feedback"
+        }, 
+        {
+            "location": "/tile-documentation/#installing-configuring-the-tile", 
+            "text": "This topic provides instructions for how to install and configure the tile. Typically this includes procedures for how to download the tile from PivNet, install it on Ops Manager, configure the tile, and do any required third-party configuration. Screenshots should be provided where necessary. Consult the following format:", 
+            "title": "Installing / Configuring the Tile"
+        }, 
+        {
+            "location": "/tile-documentation/#install-via-pivotal-ops-manager", 
+            "text": "Download the product file from Pivotal Network (edit link).  Upload the product file to your Ops Manager installation.  Click Add next to the uploaded product description in the Ops Manager Available Products view to add this product to your staging area.  Click the newly added tile to review any configurable options.  Click Apply Changes to install the service.", 
+            "title": "Install via Pivotal Ops Manager"
+        }, 
+        {
+            "location": "/tile-documentation/#upgrading-to-the-latest-version", 
+            "text": "If there are any specific instructions for upgrading the tile, you can include those here. If the procedures are complicated, create a new Upgrading topic.", 
+            "title": "Upgrading to the Latest Version"
+        }, 
+        {
+            "location": "/tile-documentation/#configuring-the-partner-tile", 
+            "text": "(add snapshots for each step when possible or add details as required)   Login into Pivotal Ops Manager   Click on \u201cImport a Product\u201d and import the Partner Tile  Select the Partner option  Click Add on the Partner Tile  Select the Partner Tile  Configure the Partner Tile  Apply your changes.   On completion of Partner Tile install, check Services Marketplace in Apps Manager   View Partner Service Plans  Bind the Partner Service to an Application  Check the service or dashboard for the partner for more data\u2026", 
+            "title": "Configuring the Partner Tile"
+        }, 
+        {
+            "location": "/tile-documentation/#other-configurations-third-party-configurations", 
+            "text": "Provide information for specific configurations like configuring for HTTP proxy, or doing any necessary configurations on a third-party service portal.", 
+            "title": "Other Configurations / Third-Party Configurations"
+        }, 
+        {
+            "location": "/tile-documentation/#using-the-tile", 
+            "text": "This topic provides instructions for how to use the tile. Typically this includes \nprocedures for how to perform the different functions offered by the service. Screenshots should be provided where necessary. You can also include information about Architecture here if necessary.", 
+            "title": "Using the Tile"
+        }, 
+        {
+            "location": "/tile-documentation/#troubleshooting", 
+            "text": "This topic provides troubleshooting information for known errors, following the Symptom/Explanation format used here: http://docs.pivotal.io/p-identity/okta/troubleshooting.html", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/tile-documentation/#release-notes", 
+            "text": "Include the release notes as the final topic, following the format below. For reference, see the JFrog Artifactory Release Notes .   Version number:  Release date:   Features included in this release:   First feature.  Second feature.  Third feature.", 
+            "title": "Release Notes"
         }, 
         {
             "location": "/concourse/", 
-            "text": "Using Concourse to Set Up Continuous Integration\n\n\nCloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.\n\n\nOur tool of choice for setting up CI is \nconcourse\n.\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.\n\n\n \n\n\nSetting up a Concourse Server\n\n\nYou will need a concourse server to host your pipeline. If you partner with\nus, we have servers that can host your pipeline, and S3 storage that can be\nused to transfer artifacts to and from your servers. If you choose to set\nup your own, instructions can be found here:\n\n\n\n\nSetting up concourse\n\n\n\n\n \n\n\nCreating a Concourse Pipeline for your Tile\n\n\nA typical CI pipeline for a tile consists of the following jobs:\n\n\n\n\nBuild the tile\n\n\nDeploy it to PCF\n\n\nRun a set of deployment tests to verify that it deployed and works correctly\n\n\nRemove it from PCF\n\n\n\n\nYou describe this pipeline in a pipeline.yml file that is then uploaded to the\nconcourse server. \nTile Generator\n contains a sample\npipeline that you can clone for your own tile. We are working on automating\nthe process of generating a pipeline template for you.\n\n\n \n\n\nSetting up PCF for your CI Pipeline\n\n\nPivotal partners who have us host their pipeline have access to a pool of PCF\ninstances that are managed by us and are regularly updated with the latest\n(pre-)release versions of PCF. If you set up your own concourse server, you\nwill have to target your pipeline at a \nPCF instance you have setup\n.\n\n\nConcourse has a resource type to manage a pool of resources that are shared\nbetween pipelines, which is what we use to serialize PCF access between the\npartner pipelines that run on our concourse server.", 
+            "text": "Concourse Continuous Integration\n\n\nCloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.\n\n\nOur tool of choice for setting up CI is \nconcourse\n.\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.\n\n\n \n\n\nSetting up a Concourse Server\n\n\nYou will need a concourse server to host your pipeline. If you partner with\nus, we have servers that can host your pipeline, and S3 storage that can be\nused to transfer artifacts to and from your servers. If you choose to set\nup your own, instructions can be found here:\n\n\n\n\nSetting up concourse\n\n\n\n\n \n\n\nCreating a Concourse Pipeline for your Tile\n\n\nA typical CI pipeline for a tile consists of the following jobs:\n\n\n\n\nBuild the tile\n\n\nDeploy it to PCF\n\n\nRun a set of deployment tests to verify that it deployed and works correctly\n\n\nRemove it from PCF\n\n\n\n\nYou describe this pipeline in a pipeline.yml file that is then uploaded to the\nconcourse server. \nTile Generator\n contains a sample\npipeline that you can clone for your own tile. We are working on automating\nthe process of generating a pipeline template for you.\n\n\n \n\n\nSetting up PCF for your CI Pipeline\n\n\nPivotal partners who have us host their pipeline have access to a pool of PCF\ninstances that are managed by us and are regularly updated with the latest\n(pre-)release versions of PCF. If you set up your own concourse server, you\nwill have to target your pipeline at a \nPCF instance you have setup\n.\n\n\nConcourse has a resource type to manage a pool of resources that are shared\nbetween pipelines, which is what we use to serialize PCF access between the\npartner pipelines that run on our concourse server.", 
             "title": "Continuous Integration"
         }, 
         {
-            "location": "/concourse/#using-concourse-to-set-up-continuous-integration", 
+            "location": "/concourse/#concourse-continuous-integration", 
             "text": "Cloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.  Our tool of choice for setting up CI is  concourse .\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.", 
-            "title": "Using Concourse to Set Up Continuous Integration"
+            "title": "Concourse Continuous Integration"
         }, 
         {
             "location": "/concourse/#setting-up-a-concourse-server", 
@@ -357,13 +427,13 @@
         }, 
         {
             "location": "/concourse/", 
-            "text": "Using Concourse to Set Up Continuous Integration\n\n\nCloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.\n\n\nOur tool of choice for setting up CI is \nconcourse\n.\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.\n\n\n \n\n\nSetting up a Concourse Server\n\n\nYou will need a concourse server to host your pipeline. If you partner with\nus, we have servers that can host your pipeline, and S3 storage that can be\nused to transfer artifacts to and from your servers. If you choose to set\nup your own, instructions can be found here:\n\n\n\n\nSetting up concourse\n\n\n\n\n \n\n\nCreating a Concourse Pipeline for your Tile\n\n\nA typical CI pipeline for a tile consists of the following jobs:\n\n\n\n\nBuild the tile\n\n\nDeploy it to PCF\n\n\nRun a set of deployment tests to verify that it deployed and works correctly\n\n\nRemove it from PCF\n\n\n\n\nYou describe this pipeline in a pipeline.yml file that is then uploaded to the\nconcourse server. \nTile Generator\n contains a sample\npipeline that you can clone for your own tile. We are working on automating\nthe process of generating a pipeline template for you.\n\n\n \n\n\nSetting up PCF for your CI Pipeline\n\n\nPivotal partners who have us host their pipeline have access to a pool of PCF\ninstances that are managed by us and are regularly updated with the latest\n(pre-)release versions of PCF. If you set up your own concourse server, you\nwill have to target your pipeline at a \nPCF instance you have setup\n.\n\n\nConcourse has a resource type to manage a pool of resources that are shared\nbetween pipelines, which is what we use to serialize PCF access between the\npartner pipelines that run on our concourse server.", 
+            "text": "Concourse Continuous Integration\n\n\nCloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.\n\n\nOur tool of choice for setting up CI is \nconcourse\n.\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.\n\n\n \n\n\nSetting up a Concourse Server\n\n\nYou will need a concourse server to host your pipeline. If you partner with\nus, we have servers that can host your pipeline, and S3 storage that can be\nused to transfer artifacts to and from your servers. If you choose to set\nup your own, instructions can be found here:\n\n\n\n\nSetting up concourse\n\n\n\n\n \n\n\nCreating a Concourse Pipeline for your Tile\n\n\nA typical CI pipeline for a tile consists of the following jobs:\n\n\n\n\nBuild the tile\n\n\nDeploy it to PCF\n\n\nRun a set of deployment tests to verify that it deployed and works correctly\n\n\nRemove it from PCF\n\n\n\n\nYou describe this pipeline in a pipeline.yml file that is then uploaded to the\nconcourse server. \nTile Generator\n contains a sample\npipeline that you can clone for your own tile. We are working on automating\nthe process of generating a pipeline template for you.\n\n\n \n\n\nSetting up PCF for your CI Pipeline\n\n\nPivotal partners who have us host their pipeline have access to a pool of PCF\ninstances that are managed by us and are regularly updated with the latest\n(pre-)release versions of PCF. If you set up your own concourse server, you\nwill have to target your pipeline at a \nPCF instance you have setup\n.\n\n\nConcourse has a resource type to manage a pool of resources that are shared\nbetween pipelines, which is what we use to serialize PCF access between the\npartner pipelines that run on our concourse server.", 
             "title": "Concourse"
         }, 
         {
-            "location": "/concourse/#using-concourse-to-set-up-continuous-integration", 
+            "location": "/concourse/#concourse-continuous-integration", 
             "text": "Cloud Foundry is a fast moving platform as we are constantly extending and\nenhancing it. When you integrate your software with Cloud Foundry, it is\nimportant to make sure that your integration continues to work with every\nnew release of the platform. A great way to ensure that is to set up a CI\npipeline for your tile against a PCF deployment that is constantly updated\nwith the latest Alpha release of the platform.  Our tool of choice for setting up CI is  concourse .\nWhile you are of course free to use whetever system you are familiar with,\nour tools and documentation are built to make concourse CI as easy as\npssoble.", 
-            "title": "Using Concourse to Set Up Continuous Integration"
+            "title": "Concourse Continuous Integration"
         }, 
         {
             "location": "/concourse/#setting-up-a-concourse-server", 
@@ -382,83 +452,123 @@
         }, 
         {
             "location": "/service-brokers/", 
-            "text": "How to Build a Service Broker\n\n\nTODO - Content, including service broker API, persistence of meta-data, samples in various languages", 
+            "text": "How to Build a Service Broker\n\n\n\n\nCustom Services\n\n\nService Broker API\n\n\nRoute Services\n\n\n\n\nExample Service Brokers\n\n\n\n\nExample Service Brokers\n\n\nExample Route Services", 
             "title": "Service Brokers"
         }, 
         {
             "location": "/service-brokers/#how-to-build-a-service-broker", 
-            "text": "TODO - Content, including service broker API, persistence of meta-data, samples in various languages", 
+            "text": "Custom Services  Service Broker API  Route Services", 
             "title": "How to Build a Service Broker"
         }, 
         {
+            "location": "/service-brokers/#example-service-brokers", 
+            "text": "Example Service Brokers  Example Route Services", 
+            "title": "Example Service Brokers"
+        }, 
+        {
             "location": "/managed-services/", 
-            "text": "How to Build a Managed Service\n\n\nTODO - Explain how to build a bosh managed service with persistence, ideally with tile generator", 
+            "text": "How to Build a Managed Service\n\n\nA managed service is a service deployed on Cloud Foundry infrastructure\n(in other words, the same IaaS that yoru particular Cloud Foundry instance\nis deployed on) by the same orchestration tool, \nbosh\n.\nOffering your sfotware as a managed service means that your PCF customers\nwill not have to learn different ways to deploy, manage, and monitor\ndifferent components of their application platform.\n\n\nFor bosh to manage your service, the major components needed are:\n\n\n\n\nPackages\n that can be installed on PCF stemcells to create virtual machine images\n\n\nJobs\n that describe how to install, run, and remove your software\n\n\nA \nMonitor\n script, that describes how to monitor the health of your\nservice components and stop or restart them\n\n\n\n\nBOSH overview\n\n\n\n\nBOSH Documentation\n\n\nBOSH Problem Statement\n\n\nBOSH Basic Workflow\n\n\n\n\nCreating a BOSH Release\n\n\n\n\nCreating a Release\n\n\nDefining your Jobs\n\n\nDefining your VMs\n\n\nMonitoring the Health of your Service\n\n\n\n\nShortcut - Start with Docker images\n\n\nIf you have already packaged your service as docker images, you can emulate\na managed service deployment using the \nTile Generator\n's\nsupport for docker-bosh packages. This feature lets you deploy pre-existing\ndocker images into bash managed virtual machines on the PCF infrastructure.\n\n\nWhile this is a great, easy way to deploy your service on PCF, we don't\nrecommend this as a long-term, production-ready solution. There is really no\nbenefit of running your service in containers on the VMs, and it does have\na number of operational (\"day 2\") drawbacks:\n\n\n\n\nYou introduce more software (docker) which needs to be kept up-to-date, and\nhas the potential for bugs, downtime, and security vulnerabilities.\n\n\nYou can no longer take advantage of the patching capabilities of PCF for\nstemcells and application dependencies, like frameworks and libraries. Instead,\nyou become directly responsible for managing all software that is in the docker\nimages you deploy.", 
             "title": "Managed Services"
         }, 
         {
             "location": "/managed-services/#how-to-build-a-managed-service", 
-            "text": "TODO - Explain how to build a bosh managed service with persistence, ideally with tile generator", 
+            "text": "A managed service is a service deployed on Cloud Foundry infrastructure\n(in other words, the same IaaS that yoru particular Cloud Foundry instance\nis deployed on) by the same orchestration tool,  bosh .\nOffering your sfotware as a managed service means that your PCF customers\nwill not have to learn different ways to deploy, manage, and monitor\ndifferent components of their application platform.  For bosh to manage your service, the major components needed are:   Packages  that can be installed on PCF stemcells to create virtual machine images  Jobs  that describe how to install, run, and remove your software  A  Monitor  script, that describes how to monitor the health of your\nservice components and stop or restart them", 
             "title": "How to Build a Managed Service"
         }, 
         {
+            "location": "/managed-services/#bosh-overview", 
+            "text": "BOSH Documentation  BOSH Problem Statement  BOSH Basic Workflow", 
+            "title": "BOSH overview"
+        }, 
+        {
+            "location": "/managed-services/#creating-a-bosh-release", 
+            "text": "Creating a Release  Defining your Jobs  Defining your VMs  Monitoring the Health of your Service", 
+            "title": "Creating a BOSH Release"
+        }, 
+        {
+            "location": "/managed-services/#shortcut-start-with-docker-images", 
+            "text": "If you have already packaged your service as docker images, you can emulate\na managed service deployment using the  Tile Generator 's\nsupport for docker-bosh packages. This feature lets you deploy pre-existing\ndocker images into bash managed virtual machines on the PCF infrastructure.  While this is a great, easy way to deploy your service on PCF, we don't\nrecommend this as a long-term, production-ready solution. There is really no\nbenefit of running your service in containers on the VMs, and it does have\na number of operational (\"day 2\") drawbacks:   You introduce more software (docker) which needs to be kept up-to-date, and\nhas the potential for bugs, downtime, and security vulnerabilities.  You can no longer take advantage of the patching capabilities of PCF for\nstemcells and application dependencies, like frameworks and libraries. Instead,\nyou become directly responsible for managing all software that is in the docker\nimages you deploy.", 
+            "title": "Shortcut - Start with Docker images"
+        }, 
+        {
             "location": "/dynamic-services/", 
-            "text": "How to Build a Dynamic Service\n\n\nTODO - Explain how to build a bosh 2.0 dynamic service with persistence, ideally with tile generator", 
+            "text": "How to Build a Dynamic Service\n\n\nDynamic, or on-demand, service capabilities are coming in bosh 2.0 and\nPCF 1.8. You can get access to these features now if you partner with\nPivotal. Otherwise, check back frequently for the first public\nrelease of these capabilities.", 
             "title": "Dynamic Services"
         }, 
         {
             "location": "/dynamic-services/#how-to-build-a-dynamic-service", 
-            "text": "TODO - Explain how to build a bosh 2.0 dynamic service with persistence, ideally with tile generator", 
+            "text": "Dynamic, or on-demand, service capabilities are coming in bosh 2.0 and\nPCF 1.8. You can get access to these features now if you partner with\nPivotal. Otherwise, check back frequently for the first public\nrelease of these capabilities.", 
             "title": "How to Build a Dynamic Service"
         }, 
         {
             "location": "/buildpacks/", 
-            "text": "How to Create a Buildpack\n\n\nTODO - Explain how to build a buildpack", 
+            "text": "How to Create a Buildpack\n\n\n\n\nCreating a custom buildpack\n\n\n\n\nOfficial buildpacks\n\n\n\n\nJava buildpack\n (by far the most compicated!)\n\n\nGo buildpack\n\n\nRuby buildpack\n\n\nNode.js buildpack\n\n\nPython buildpack\n\n\nPHP buildpack\n\n\nStatic file buildpack\n (for static web content)\n\n\nBinary buildpack\n\n\n\n\nOther buildpacks\n\n\n\n\nMeta-buildpack\n\n\nSpring Config decorator buildpack", 
             "title": "Buildpacks"
         }, 
         {
             "location": "/buildpacks/#how-to-create-a-buildpack", 
-            "text": "TODO - Explain how to build a buildpack", 
+            "text": "Creating a custom buildpack", 
             "title": "How to Create a Buildpack"
         }, 
         {
+            "location": "/buildpacks/#official-buildpacks", 
+            "text": "Java buildpack  (by far the most compicated!)  Go buildpack  Ruby buildpack  Node.js buildpack  Python buildpack  PHP buildpack  Static file buildpack  (for static web content)  Binary buildpack", 
+            "title": "Official buildpacks"
+        }, 
+        {
+            "location": "/buildpacks/#other-buildpacks", 
+            "text": "Meta-buildpack  Spring Config decorator buildpack", 
+            "title": "Other buildpacks"
+        }, 
+        {
             "location": "/embedded-agents/", 
-            "text": "How to Build an Embedded Agent\n\n\nTODO - Explain how to build a container-embedded agent, and deploy it through a buildpack and .profile.d", 
+            "text": "How to Build an Embedded Agent\n\n\nSome integrations depend on the ability to inject code into the application container.\nExamples of this include:\n\n\n\n\nApplication Performance Monitoring (APM) agents\n\n\nContainer-embedded API gateways\n\n\nClient-side routers\n\n\n\n\nWe refer to these injected components as \"container-embedded agents\".\n\nBuildpacks\n provide a mechanism to inject components into the application\ncontainer image, and the \n.profile.d\n directory provides a way to start agents before or\nalongside the customer application.\n\n\n\n\nAgent Injection with the meta-buildpack\n\n\nUsing .profile.d", 
             "title": "Embedded Agents"
         }, 
         {
             "location": "/embedded-agents/#how-to-build-an-embedded-agent", 
-            "text": "TODO - Explain how to build a container-embedded agent, and deploy it through a buildpack and .profile.d", 
+            "text": "Some integrations depend on the ability to inject code into the application container.\nExamples of this include:   Application Performance Monitoring (APM) agents  Container-embedded API gateways  Client-side routers   We refer to these injected components as \"container-embedded agents\". Buildpacks  provide a mechanism to inject components into the application\ncontainer image, and the  .profile.d  directory provides a way to start agents before or\nalongside the customer application.   Agent Injection with the meta-buildpack  Using .profile.d", 
             "title": "How to Build an Embedded Agent"
         }, 
         {
             "location": "/setup-pcfdev/", 
-            "text": "Light-Weight PCF Developer Environment\n\n\nTODO - Explain how to set up a light-weight PCF development environment on a laptop using\npcfdev and bosh-lite, and how to use it for dev/test of bosh releases\n\n\nDownload PCFDev", 
-            "title": "PCF Dev"
+            "text": "PCF Developer Environment\n\n\nPivotal provides a light-weight (vagrant packaged) instance of PCF with some\nbasic services as a free product named PCF Dev. This is a great environment\nto develop and test everything that runs in the Cloud Foundry Elastic Runtime.\n\n\nIf your integration includes managed services, you will also need an instance\nof bosh that can manage virtual machines and bosh releases for you.\n\nbosh-lite\n works well for that\npurpose.\n\n\nBetween these two components, you will have everything you need to develop\ntiles, except for Pivotal's Ops Manager. But if you followed the recommended\n\nstaged development approach\n you will not need an actual full\nPCF environment until the later phases of your development.\n\n\nSetting up PCF Dev\n\n\n\n\nDownload PCF Dev\n\n\nInstall and Using PCF Dev\n\n\n\n\nSetting up bosh-lite\n\n\n\n\nInstall bosh-lite\n\n\n\n\n\n\nNote:\n\n\nFor this type of development environment, you only need bosh-lite\nitself to deploy managed service releases. You do \nnot\n need to follow the\ninstructions to Deploy Cloud Foundry in bosh-lite, as Cloud Foundry is\nprovided by the PCF Dev installation above.", 
+            "title": "Developer Environment"
         }, 
         {
-            "location": "/setup-pcfdev/#light-weight-pcf-developer-environment", 
-            "text": "TODO - Explain how to set up a light-weight PCF development environment on a laptop using\npcfdev and bosh-lite, and how to use it for dev/test of bosh releases  Download PCFDev", 
-            "title": "Light-Weight PCF Developer Environment"
+            "location": "/setup-pcfdev/#pcf-developer-environment", 
+            "text": "Pivotal provides a light-weight (vagrant packaged) instance of PCF with some\nbasic services as a free product named PCF Dev. This is a great environment\nto develop and test everything that runs in the Cloud Foundry Elastic Runtime.  If your integration includes managed services, you will also need an instance\nof bosh that can manage virtual machines and bosh releases for you. bosh-lite  works well for that\npurpose.  Between these two components, you will have everything you need to develop\ntiles, except for Pivotal's Ops Manager. But if you followed the recommended staged development approach  you will not need an actual full\nPCF environment until the later phases of your development.", 
+            "title": "PCF Developer Environment"
+        }, 
+        {
+            "location": "/setup-pcfdev/#setting-up-pcf-dev", 
+            "text": "Download PCF Dev  Install and Using PCF Dev", 
+            "title": "Setting up PCF Dev"
+        }, 
+        {
+            "location": "/setup-pcfdev/#setting-up-bosh-lite", 
+            "text": "Install bosh-lite    Note:  For this type of development environment, you only need bosh-lite\nitself to deploy managed service releases. You do  not  need to follow the\ninstructions to Deploy Cloud Foundry in bosh-lite, as Cloud Foundry is\nprovided by the PCF Dev installation above.", 
+            "title": "Setting up bosh-lite"
         }, 
         {
             "location": "/setup-pcf/", 
-            "text": "Setting up PCF\n\n\nTODO - Provide links to documentation for setting up full-blown PCF on various infrastructures\n\n\n \n\n\nOperating PCF\n\n\nTODO - Provide links to documentation for operating and monitoring PCF\n\n\n \n\n\nUpgrading PCF\n\n\nTODO - Provide links to documentation for upgrading PCF", 
-            "title": "PCF"
+            "text": "Setting up PCF\n\n\nPartners who participate in our program have access to a number of shared\nPCF environments that are operated and managed by Pivotal. If you are not\n(yet) in our program, need a dedicated environment, or want to be able to\nwork offline, you can set up your own environment. Often, a\n\ndeveloper environment\n is sufficient for the early\nphases of an integration effort. But eventually, you will need access to\na complete environment that includes Pivotal's Ops Manager on one of the\nsupported infrastructures:\n\n\n\n\nInstalling Pivotal Cloud Foundry\n\n\n \n\n\nOperating Pivotal Cloud Foundry\n\n\n \n\n\nUpgrading Pivotal Cloud Foundry", 
+            "title": "Full PCF Environment"
         }, 
         {
             "location": "/setup-pcf/#setting-up-pcf", 
-            "text": "TODO - Provide links to documentation for setting up full-blown PCF on various infrastructures", 
+            "text": "Partners who participate in our program have access to a number of shared\nPCF environments that are operated and managed by Pivotal. If you are not\n(yet) in our program, need a dedicated environment, or want to be able to\nwork offline, you can set up your own environment. Often, a developer environment  is sufficient for the early\nphases of an integration effort. But eventually, you will need access to\na complete environment that includes Pivotal's Ops Manager on one of the\nsupported infrastructures:   Installing Pivotal Cloud Foundry     Operating Pivotal Cloud Foundry     Upgrading Pivotal Cloud Foundry", 
             "title": "Setting up PCF"
         }, 
         {
-            "location": "/setup-pcf/#operating-pcf", 
-            "text": "TODO - Provide links to documentation for operating and monitoring PCF", 
-            "title": "Operating PCF"
+            "location": "/troubleshooting/", 
+            "text": "Troubleshooting\n\n\nSooner or later you will run into problems that require digging a little bit deeper.\nHere are some great resources on how to best troubleshoot more complex issues:\n\n\n\n\nTroubleshooting PCF\n\n\nTroubleshooting Applications\n\n\nAdvanced Troubleshooting with BOSH", 
+            "title": "Troubleshooting"
         }, 
         {
-            "location": "/setup-pcf/#upgrading-pcf", 
-            "text": "TODO - Provide links to documentation for upgrading PCF", 
-            "title": "Upgrading PCF"
+            "location": "/troubleshooting/#troubleshooting", 
+            "text": "Sooner or later you will run into problems that require digging a little bit deeper.\nHere are some great resources on how to best troubleshoot more complex issues:   Troubleshooting PCF  Troubleshooting Applications  Advanced Troubleshooting with BOSH", 
+            "title": "Troubleshooting"
         }, 
         {
             "location": "/contacts/", 
