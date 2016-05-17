@@ -251,12 +251,47 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="using-concourse-to-set-up-continuous-integration">Using Concourse to Set Up Continuous Integration</h1>
+<p>Cloud Foundry is a fast moving platform as we are constantly extending and
+enhancing it. When you integrate your software with Cloud Foundry, it is
+important to make sure that your integration continues to work with every
+new release of the platform. A great way to ensure that is to set up a CI
+pipeline for your tile against a PCF deployment that is constantly updated
+with the latest Alpha release of the platform.</p>
+<p>Our tool of choice for setting up CI is <a href="http://concourse.ci/">concourse</a>.
+While you are of course free to use whetever system you are familiar with,
+our tools and documentation are built to make concourse CI as easy as
+pssoble.</p>
 <p><a name="server"></a> </p>
 <h2 id="setting-up-a-concourse-server">Setting up a Concourse Server</h2>
+<p>You will need a concourse server to host your pipeline. If you partner with
+us, we have servers that can host your pipeline, and S3 storage that can be
+used to transfer artifacts to and from your servers. If you choose to set
+up your own, instructions can be found here:</p>
+<ul>
+<li><a href="http://concourse.ci/setting-up.html">Setting up concourse</a></li>
+</ul>
 <p><a name="pipeline"></a> </p>
 <h2 id="creating-a-concourse-pipeline-for-your-tile">Creating a Concourse Pipeline for your Tile</h2>
+<p>A typical CI pipeline for a tile consists of the following jobs:</p>
+<ul>
+<li>Build the tile</li>
+<li>Deploy it to PCF</li>
+<li>Run a set of deployment tests to verify that it deployed and works correctly</li>
+<li>Remove it from PCF</li>
+</ul>
+<p>You describe this pipeline in a pipeline.yml file that is then uploaded to the
+concourse server. <a href="../tile-generator/">Tile Generator</a> contains a sample
+pipeline that you can clone for your own tile. We are working on automating
+the process of generating a pipeline template for you.</p>
 <p><a name="pool"></a> </p>
-<h2 id="setting-up-pcf-for-your-ci-pipeline">Setting up PCF for your CI Pipeline</h2></div>
+<h2 id="setting-up-pcf-for-your-ci-pipeline">Setting up PCF for your CI Pipeline</h2>
+<p>Pivotal partners who have us host their pipeline have access to a pool of PCF
+instances that are managed by us and are regularly updated with the latest
+(pre-)release versions of PCF. If you set up your own concourse server, you
+will have to target your pipeline at a <a href="../setup-pcf/">PCF instance you have setup</a>.</p>
+<p>Concourse has a resource type to manage a pool of resources that are shared
+between pipelines, which is what we use to serialize PCF access between the
+partner pipelines that run on our concourse server.</p></div>
             
         </div>
 
