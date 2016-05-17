@@ -1,4 +1,4 @@
-# Using Concourse to Set Up Continuous Integration
+# Concourse Continuous Integration
 
 Cloud Foundry is a fast moving platform as we are constantly extending and
 enhancing it. When you integrate your software with Cloud Foundry, it is
