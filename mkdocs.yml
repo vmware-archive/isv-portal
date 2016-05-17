@@ -23,6 +23,7 @@ pages:
   - 'Setup':
     - 'Developer Environment': 'setup-pcfdev.md'
     - 'Full PCF Environment': 'setup-pcf.md'
+  - 'Troubleshooting': 'troubleshooting.md'
 - 'Contacts': 'contacts.md'
 
 markdown_extensions:
