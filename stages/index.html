@@ -302,12 +302,55 @@ further code changes. User-provided service bindings are fully compatible with
 brokered service bindings.</p>
 <p><a name="broker"></a> </p>
 <h2 id="stage-2-brokered-service">Stage 2. Brokered Service</h2>
+<p>The first real improvement in user experience is achieved by creating a
+<a href="../service-brokers/">Service Broker</a> for your service. Service brokers allow
+you to expose your services and plans in the <code>cf marketplace</code>, from which
+your customers can then create their own service instances with a simple
+<code>cf create-service</code>. It eliminates the need for them to know the URLs and
+credentials for your services - those are managed automatically by the
+broker instead.</p>
+<p>Building a broker for a (still) externally deployed service is generally
+a good way to be able to publish a first tile that adds real value for
+customers who have both your software and PCF.</p>
 <p><a name="managed"></a> </p>
 <h2 id="stage-3-managed-service">Stage 3. Managed Service</h2>
+<p>The next step is to get your service to actually be deployed on PCF rather
+than externally as you've traditionally done it. This is usually one of the
+more involved stages as you will have to change your packaging to allow your
+service components to be deployed by <a href="http://bosh.io">bosh</a> onto the PCF
+infrastructure.</p>
+<p>You will have to learn about stemcells, bosh releases, and manifests. You
+will also have to decide how your service maps to virtual machines and how
+persistent storage is managed.</p>
+<p>For a Minimal Viable Product (MVP) version of a managed service, we typically
+recommend that you aim for a single, shared service instance, and don't yet
+worry too much about High Availability of this instance. This stage is mostly
+about getting the bosh packaging, deployment, and monitoring working
+correctly.</p>
+<p><a name="dynamic"></a> </p>
 <h2 id="stage-3b-high-availability">Stage 3b. High Availability</h2>
+<p>Once you have a managed service, you may decide to prioritize either
+<a href="#dynamic">dynamic provisioning</a> of service instances, <em>or</em> making your
+single shared service instance more highly available.</p>
+<p>When properly configured, bosh monitors and restarts any failing processes
+and virtual machines that are part of your service deployment. But to
+further increase availability, you will have to think about spreading your
+resources across multiple availability zones or even regions, and replicating
+your persistent storage across those as well.</p>
 <p><a name="dynamic"></a> </p>
 <h2 id="stage-4-dynamic-service">Stage 4. Dynamic Service</h2>
-<h2 id="stage-4b-high-availability">Stage 4b. High Availability</h2></div>
+<p>All prior stages assume that you have a single instance of your software
+deployed. That instance can be multi-tenant, and it can possibly be manually
+scaled to accomodate many concurrent applications. But for real production
+deployments, most of your customer will want dedicated instances of your
+service for each application.</p>
+<p>With bosh 2.0, Cloud Foundry has the ability to dynamically provision a
+completely new bosh deployment of your software for each service instance.
+This is known as "dynamic" or "on-demand" service provisioning.</p>
+<h2 id="stage-4b-high-availability">Stage 4b. High Availability</h2>
+<p>If you hadn't already in Stage 3b, the final step would be to consider how
+each of your dynamically provisioned service instances can be made more
+highly available.</p></div>
             
         </div>
 
