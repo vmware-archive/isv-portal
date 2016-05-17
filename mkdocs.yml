@@ -21,8 +21,8 @@ pages:
     - 'Buildpacks': 'buildpacks.md'
     - 'Embedded Agents': 'embedded-agents.md'
   - 'Setup':
-    - 'PCF Dev': 'setup-pcfdev.md'
-    - 'PCF': 'setup-pcf.md'
+    - 'Developer Environment': 'setup-pcfdev.md'
+    - 'Full PCF Environment': 'setup-pcf.md'
 - 'Contacts': 'contacts.md'
 
 markdown_extensions:
