@@ -532,7 +532,7 @@
         }, 
         {
             "location": "/setup-pcfdev/", 
-            "text": "PCF Developer Environment\n\n\nPivotal provides a light-weight (vagrant packaged) instance of PCF with some\nbasic services as a free product named PCF Dev. This is a great environment\nto develop and test everything that runs in the Cloud Foundry Elastic Runtime.\n\n\nIf your integration includes managed services, you will also need an instance\nof bosh that can manage virtual machines and bosh releases for you.\n\nbosh-lite\n works well for that\npurpose.\n\n\nBetween these two components, you will have everything you need to develop\ntiles, except for Pivotal's Ops Manager. But if you followed the recommended\n\nstaged development approach\n you will not need an actual full\nPCF environment until the later phases of your development.\n\n\nSetting up PCF Dev\n\n\n\n\nDownload PCF Dev\n\n\nInstall and Using PCF Dev\n\n\n\n\nSetting up bosh-lite\n\n\n\n\nInstall bosh-lite\n\n\n\n\n\n\nNote:\n\n\nFor this type of development environment, you only need bosh-lite\nitself to deploy managed service releases. You do \nnot\n need to follow the\ninstructions to Deploy Cloud Foundry in bosh-lite, as Cloud Foundry is\nprovided by the PCF Dev installation above.", 
+            "text": "PCF Developer Environment\n\n\nPivotal provides a light-weight (vagrant packaged) instance of PCF with some\nbasic services as a free product named PCF Dev. This is a great environment\nto develop and test everything that runs in the Cloud Foundry Elastic Runtime.\n\n\nIf your integration includes managed services, you will also need an instance\nof bosh that can manage virtual machines and bosh releases for you.\n\nbosh-lite\n works well for that\npurpose.\n\n\nBetween these two components, you will have everything you need to develop\ntiles, except for Pivotal's Ops Manager. But if you followed the recommended\n\nstaged development approach\n you will not need an actual full\nPCF environment until the later phases of your development.\n\n\nSetting up PCF Dev\n\n\n\n\nTry PCF on your Local Workstation\n\n\n\n\nSetting up bosh-lite\n\n\n\n\nInstall bosh-lite\n\n\n\n\n\n\nNote:\n\n\nFor this type of development environment, you only need bosh-lite\nitself to deploy managed service releases. You do \nnot\n need to follow the\ninstructions to Deploy Cloud Foundry in bosh-lite, as Cloud Foundry is\nprovided by the PCF Dev installation above.", 
             "title": "Developer Environment"
         }, 
         {
@@ -542,7 +542,7 @@
         }, 
         {
             "location": "/setup-pcfdev/#setting-up-pcf-dev", 
-            "text": "Download PCF Dev  Install and Using PCF Dev", 
+            "text": "Try PCF on your Local Workstation", 
             "title": "Setting up PCF Dev"
         }, 
         {
