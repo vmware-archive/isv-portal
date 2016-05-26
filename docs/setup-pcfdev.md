@@ -16,8 +16,7 @@ PCF environment until the later phases of your development.
 
 ## Setting up PCF Dev
 
-- [Download PCF Dev](https://network.pivotal.io/products/pcfdev)
-- [Install and Using PCF Dev](https://docs.pivotal.io/pcf-dev/)
+- [Try PCF on your Local Workstation](http://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry-dev/introduction)
 
 ## Setting up bosh-lite
 
