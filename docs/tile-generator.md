@@ -134,11 +134,11 @@ each package entry depends on the type of package you are adding.
 Applications (including service brokers) that are being `cf push`ed into the
 Elastic Runtime use the following format:
 
-<pre>
+```yaml
 - name: my-application
-  type: app <i>or</i> app-broker
+  type: app # or app-broker
   manifest:
-    <i># any options that you would normally specify in a cf manifest.yml, including</i>
+    # any options that you would normally specify in a cf manifest.yml, including</i>
     buildpack:
     command:
     domain:
@@ -148,11 +148,11 @@ Elastic Runtime use the following format:
     path:
     env:
     services:
-  health_check: none                 <i># optional</i>
-  configurable_persistence: true     <i># optional</i>
-  needs_cf_credentials: true         <i># optional</i>
-  auto_services: p-mysql p-redis     <i># optional</i>
-</pre>
+  health_check: none                 # optional
+  configurable_persistence: true     # optional
+  needs_cf_credentials: true         # optional
+  auto_services: p-mysql p-redis     # optional
+```
 
 Note: for applications that are normally pushed as multiple files (node.js for example)
 you should zip up the project files plus all dependencies into a single zip file, then
@@ -188,13 +188,32 @@ services to interact with the Cloud Controller.
 Most modern service brokers are pushed into the Elastic Runtime as normal
 CF applications. For these types of brokers, use the Pushed Application format
 specified above, but set the type to `app-broker` or `docker-app-broker` instead
-of just `app` or `docker-app`.
+of just `app` or `docker-app`:
+
+```
+- name: my-broker
+  type: app-broker
+  manifest:
+    command:
+    domain:
+    path:
+    # ...
+  needs_cf_credentials: true           # optional
+  auto_services: p-mysql p-redis       # optional
+  enable_global_access_to_plans: true  # optional
+```
+
+!!! note "Note:"
+    Unless you specify the `enable_global_access_to_plans: true` option, your
+    broker's services will not appear in the user's marketplaces.
+    Operators will have to use the `cf enable-service-access` command to allow
+    specific users, orgs, and spaces to access your services.
 
 Some service brokers support operator-defined service plans, for instance when
 the plans reflect customer license keys. To allow operators to add plans from
-the tile configuration, add the following section:
+the tile configuration, add the following section at the top level of your tile.yml:
 
-<pre>
+```
 dynamic_service_plans:
 - name: description
   type: string
@@ -208,30 +227,31 @@ dynamic_service_plans:
   type: secret
   description: "Key 2 of type Password"
   configurable: true
-</pre>
+```
 
 Name and GUID fields will be supplied by default for each plan, but all other fields
-are optional and customizable.
+are optional and customizable. The operator-configured plans will be passed to your
+service broker in JSON format in the `DYNAMIC_PLANS` environment variable.
 
 For an external service broker, use:
 
-<pre>
+```
 - name: my-application
   type: external-broker
   uri: http://broker3.example.com
   username: user
-  password: <i>secret</i>
+  password: #secret
   internal_service_names: 'service1,service2'
-</pre>
+```
 
 #### Buildpacks
 
-<pre>
+```
 - name: my-buildpack
   type: buildpack
-  files:
-  - path: resources/buildpack.zip
-</pre>
+  path: resources/buildpack.zip
+  buildpack_order: 99     # optional, 99 means end of the list
+```
 
 #### Docker Images
 
@@ -241,13 +261,13 @@ format specified above, but use the `docker-app` or `docker-app-broker` type ins
 of just `app` or `app-broker`. The docker image to be used is then specified using
 the `image` property:
 
-<pre>
+```
 - name: app1
   type: docker-app
   image: test/dockerimage
   manifest:
     ...
-</pre>
+```
 
 If this app is also a service broker, use `docker-app-broker` instead of just
 `docker-app`. This option is appropriate for docker-wrapped 12-factor apps that
@@ -257,7 +277,7 @@ Docker applications that require persistent storage can not be deployed into
 the Elastic Runtime. These can be deployed to separate BOSH-managed VMs instead
 by using the `docker-bosh` type:
 
-<pre>
+```
 - name: docker-bosh1
   type: docker-bosh
   cpu: 5
@@ -292,9 +312,11 @@ by using the `docker-bosh` type:
       - mysql
       bind_ports:
       - "9200:9200"
-</pre>
+```
+
 If a docker image cannot be downloaded by BOSH dynamically, its better to provide a ready made docker image and package it as part of the BOSH release. In that case, specify the image as a local file.
-<pre>
+
+```
 - name: docker-bosh2
   type: docker-bosh
   files:
@@ -312,7 +334,7 @@ If a docker image cannot be downloaded by BOSH dynamically, its better to provid
       - "EXAMPLE_VAR=1"
       # See below on custom forms/variables and binding it to the docker env variable
       - "custom_variable_name=((.properties.customer_name.value))"
-</pre>
+```
 
 ### Custom Forms and Properties
 
@@ -374,14 +396,14 @@ service brokers and docker-based applications) that are being pushed into the
 Elastic Runtime can automatically be bound to services through the `auto_services`
 feature:
 
-<pre>
+```
 - name: app1
   type: app
   auto_services:
   - name: p-mysql
     plan: 100mb-dev
   - name: p-redis
-</pre>
+```
 
 You can specify any number of service names, optionally specifying a specific
 plan. During deployment, the generated tile will create an instance of each
@@ -391,10 +413,11 @@ package.
 Service instances provisioned this way survive updates, but will be deleted
 when the tile is uninstalled.
 
-*NOTE* that the name is the name of the provided *service*, *not* the *broker*.
-In many cases these are not the same, and a single broker may even offer
-multiple services. Use `cf marketplace` to see the services and plans
-available from installed brokers.
+!!! note "Note:"
+    The name is the name of the provided *service, not the broker*.
+    In many cases these are not the same, and a single broker may even offer
+    multiple services. Use `cf service-access` to see the services and plans
+    offered by installed service brokers.
 
 If you do not specify a plan, the tile generator will use the first plan
 listed for the service in the broker catalog. It is a good idea to always
@@ -435,11 +458,11 @@ appending `-org` and `-space`, respectively. The default memory quota for a
 newly created or will be 1024 (1G). You can change any of these defaults by
 specifying the following properties in `tile.yml`:
 
-<pre>
+```
 org: test-org
 org_quota: 4096
 space: test-space
-</pre>
+```
 
 ### Security
 
@@ -447,9 +470,9 @@ If your cf packages need outbound access (including access to other packages
 within the same tile), you will need to apply an appropriate security group.
 The following option will remove all constraints on outbound traffic:
 
-<pre>
+```
 apply_open_security_group: true
-</pre>
+```
 
 ### Stemcells
 
@@ -459,11 +482,11 @@ CF command lines and/or the docker daemon. But if you have specific stemcell
 requirements, you can override the defaults in your `tile.yml` file by including
 a `stemcell-criteria` section and replacing the appopriate values:
 
-<pre>
+```yaml
 stemcell_criteria:
   os: 'ubunty-trusty'
-  version: '3146.5'     <i>NOTE: You must quote the version to force the type to be string</i>
-</pre>
+  version: '3146.5'     #NOTE: You must quote the version to force the type to be string
+```
 
 ## Versioning
 
@@ -528,9 +551,9 @@ to build including the CF CLI download and the BOSH release generation.
 
 ## Supported Commands
 
-```
-init [<tile-name>]
-build [patch|minor|major|<version>]
+```bash
+tile init [<tile-name>]
+tile build [patch|minor|major|<version>]
 ```
 
 ## Credits
