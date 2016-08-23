@@ -105,7 +105,7 @@ your persistent storage across those as well.
 All prior stages assume that you have a single instance of your software
 deployed. That instance can be multi-tenant, and it can possibly be manually
 scaled to accomodate many concurrent applications. But for real production
-deployments, most of your customer will want dedicated instances of your
+deployments, most of your customers will want dedicated instances of your
 service for each application.
 
 With bosh 2.0, Cloud Foundry has the ability to dynamically provision a
