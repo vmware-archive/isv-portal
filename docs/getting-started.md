@@ -45,7 +45,7 @@ Cloud Foundry, to map out the best possible integration path.
 ## Step 2. Learn how to build
 
 Depending on the selected type of integration, you will need to learn
-how to build on or more of:
+how to build one or more of:
 
 - [Service brokers](service-brokers.md)
 - [Managed services](managed-services.md)
