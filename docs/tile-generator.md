@@ -490,7 +490,7 @@ stemcell_criteria:
 
 ## Versioning
 
-The tile generator uses semver versioning. By default, `tile build` will
+The tile generator uses [semver versioning](http://semver.org/). By default, `tile build` will
 generate the next patch release. Major and minor releases can be generated
 by explicitly specifying `tile build major` or `tile build minor`. Or to
 override the version number completely, specify a valid semver version on
