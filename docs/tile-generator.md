@@ -350,7 +350,7 @@ properties:
 ```
 
 If you want the properties to be configurable by the tile installer, place them on
-a custom for instead:
+a custom form instead:
 
 ```
 forms:
