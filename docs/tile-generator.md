@@ -437,7 +437,7 @@ enforce that dependency by declaring it in your `tile.yml` file as follows:
 ```
 requires_product_versions:
 - name: p-mysql
-  version '~> 1.7'
+  version: '~> 1.7'
 ```
 
 If the required product is not present in the PCF installation, Ops Manager
