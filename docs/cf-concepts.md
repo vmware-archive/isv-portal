@@ -12,7 +12,7 @@ concepts. If you prefer to learn through guided training,
 
 ## General Overview
 
-For general overview of CLoud Foundry, and the various ways to interact with it,
+For general overview of Cloud Foundry, and the various ways to interact with it,
 use the following links:
 
 - [Cloud Foundry Subsystems](http://docs.pivotal.io/pivotalcf/concepts/overview.html)

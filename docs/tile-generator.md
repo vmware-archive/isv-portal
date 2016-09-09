@@ -350,7 +350,7 @@ properties:
 ```
 
 If you want the properties to be configurable by the tile installer, place them on
-a custom for instead:
+a custom form instead:
 
 ```
 forms:
@@ -437,7 +437,7 @@ enforce that dependency by declaring it in your `tile.yml` file as follows:
 ```
 requires_product_versions:
 - name: p-mysql
-  version '~> 1.7'
+  version: '~> 1.7'
 ```
 
 If the required product is not present in the PCF installation, Ops Manager
@@ -490,7 +490,7 @@ stemcell_criteria:
 
 ## Versioning
 
-The tile generator uses semver versioning. By default, `tile build` will
+The tile generator uses [semver versioning](http://semver.org/). By default, `tile build` will
 generate the next patch release. Major and minor releases can be generated
 by explicitly specifying `tile build major` or `tile build minor`. Or to
 override the version number completely, specify a valid semver version on
