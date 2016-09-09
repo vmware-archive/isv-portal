@@ -572,7 +572,7 @@ the to the properties section of <code>tile.yml</code>:</p>
 </code></pre>
 
 <p>If you want the properties to be configurable by the tile installer, place them on
-a custom for instead:</p>
+a custom form instead:</p>
 <pre><code>forms:
 - name: custom-form1
   label: Test Tile
@@ -647,7 +647,7 @@ letting the user choose between some standard brokers.</p>
 enforce that dependency by declaring it in your <code>tile.yml</code> file as follows:</p>
 <pre><code>requires_product_versions:
 - name: p-mysql
-  version '~&gt; 1.7'
+  version: '~&gt; 1.7'
 </code></pre>
 
 <p>If the required product is not present in the PCF installation, Ops Manager
@@ -688,7 +688,7 @@ a <code>stemcell-criteria</code> section and replacing the appopriate values:</p
 </code></pre>
 
 <h2 id="versioning">Versioning</h2>
-<p>The tile generator uses semver versioning. By default, <code>tile build</code> will
+<p>The tile generator uses <a href="http://semver.org/">semver versioning</a>. By default, <code>tile build</code> will
 generate the next patch release. Major and minor releases can be generated
 by explicitly specifying <code>tile build major</code> or <code>tile build minor</code>. Or to
 override the version number completely, specify a valid semver version on
