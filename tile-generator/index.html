@@ -309,16 +309,19 @@ combination of the following package types:</p>
 <ol>
 <li>
 <p>Check out the tile-generator repo:</p>
-<p><code>git clone https://github.com/cf-platform-eng/tile-generator.git</code></p>
+<pre><code>git clone https://github.com/cf-platform-eng/tile-generator.git
+</code></pre>
 </li>
 <li>
 <p>Change to the root directory of the tile generator, and pull down the generator's dependencies:</p>
-<p><code>cd tile-generator</code><br/>
-<code>pip install -r requirements.txt</code></p>
+<pre><code>cd tile-generator
+pip install -r requirements.txt
+</code></pre>
 </li>
 <li>
 <p>Add the <code>bin</code> directory of tile-generator to your path:</p>
-<p><code>export PATH=`pwd`/bin:$PATH</code></p>
+<pre><code>export PATH=`pwd`/bin:$PATH
+</code></pre>
 <p><em>If you expect to frequently use the tile generator, you may want to add this to your shell's startup script, i.e. <code>.profile</code></em></p>
 </li>
 <li>
@@ -326,15 +329,17 @@ combination of the following package types:</p>
 </li>
 <li>
 <p>Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):</p>
-<p><code>cd &lt;your project dir&gt;</code><br/>
-<code>tile init</code></p>
+<pre><code>cd &lt;your project dir&gt;
+tile init`
+</code></pre>
 </li>
 <li>
 <p>Edit the generated <code>tile.yml</code> file to define your tile (more details below)</p>
 </li>
 <li>
 <p>Build your tile</p>
-<p><code>tile build</code></p>
+<pre><code>tile build
+</code></pre>
 </li>
 </ol>
 <p>The generator will first create a BOSH release (in the <code>release</code> subdirectory),
