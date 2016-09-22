@@ -45,20 +45,16 @@ For a 7-minute introduction into what tile generator is and does, see
 
 1. Check out the tile-generator repo:
 
-    ```
-    git clone https://github.com/cf-platform-eng/tile-generator.git
-    ```
+        git clone https://github.com/cf-platform-eng/tile-generator.git
 
 2. Change to the root directory of the tile generator, and pull down the generator's dependencies:
 
-    `cd tile-generator`<br/>
-    `pip install -r requirements.txt`
+        cd tile-generator
+        pip install -r requirements.txt
 
 3. Add the `bin` directory of tile-generator to your path:
 
-    ```
-    export PATH=`pwd`/bin:$PATH
-    ```
+        export PATH=`pwd`/bin:$PATH
 
     *If you expect to frequently use the tile generator, you may want to add this to your shell's startup script, i.e. `.profile`*
 
@@ -66,16 +62,14 @@ For a 7-minute introduction into what tile generator is and does, see
 
 5. Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):
 
-    `cd <your project dir>`<br/>
-    `tile init`
+        cd <your project dir>
+        tile init`
 
 6. Edit the generated `tile.yml` file to define your tile (more details below)
 
 7. Build your tile
 
-    ```
-    tile build
-    ```
+        tile build
 
 The generator will first create a BOSH release (in the `release` subdirectory),
 then wrap that release into a Pivotal tile (in the `product` subdirectory).
