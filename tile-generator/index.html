@@ -309,19 +309,16 @@ combination of the following package types:</p>
 <ol>
 <li>
 <p>Check out the tile-generator repo:</p>
-<p><code>bash
-git clone https://github.com/cf-platform-eng/tile-generator.git</code></p>
+<p><code>git clone https://github.com/cf-platform-eng/tile-generator.git</code></p>
 </li>
 <li>
 <p>Change to the root directory of the tile generator, and pull down the generator's dependencies:</p>
-<p><code>bash
-cd tile-generator
+<p><code>cd tile-generator
 pip install -r requirements.txt</code></p>
 </li>
 <li>
 <p>Add the <code>bin</code> directory of tile-generator to your path:</p>
-<p><code>bash
-export PATH=`pwd`/bin:$PATH</code></p>
+<p><code>export PATH=`pwd`/bin:$PATH</code></p>
 <p><em>If you expect to frequently use the tile generator, you may want to add this to your shell's startup script, i.e. <code>.profile</code></em></p>
 </li>
 <li>
@@ -329,8 +326,7 @@ export PATH=`pwd`/bin:$PATH</code></p>
 </li>
 <li>
 <p>Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):</p>
-<p><code>bash
-cd &lt;your project dir&gt;
+<p><code>cd &lt;your project dir&gt;
 tile init</code></p>
 </li>
 <li>
@@ -338,8 +334,7 @@ tile init</code></p>
 </li>
 <li>
 <p>Build your tile</p>
-<p><code>bash
-tile build</code></p>
+<p><code>tile build</code></p>
 </li>
 </ol>
 <p>The generator will first create a BOSH release (in the <code>release</code> subdirectory),
@@ -753,6 +748,8 @@ tile build [patch|minor|major|&lt;version&gt;]
 
         <footer class="col-md-12">
             <hr>
+            
+                <p>Copyright (C) 2016 Pivotal Software Inc.</p>
             
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
