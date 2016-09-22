@@ -1,4 +1,5 @@
 site_name: ISV Portal
+copyright: Copyright (C) 2016 Pivotal Software Inc.
 
 pages:
 - 'Home': 'index.md'
