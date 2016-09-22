@@ -51,10 +51,8 @@ For a 7-minute introduction into what tile generator is and does, see
 
 2. Change to the root directory of the tile generator, and pull down the generator's dependencies:
 
-    ```
-    cd tile-generator
-    pip install -r requirements.txt
-    ```
+    `cd tile-generator`<br/>
+    `pip install -r requirements.txt`
 
 3. Add the `bin` directory of tile-generator to your path:
 
@@ -68,10 +66,8 @@ For a 7-minute introduction into what tile generator is and does, see
 
 5. Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):
 
-    ```
-    cd <your project dir>
-    tile init
-    ```
+    `cd <your project dir>`<br/>
+    `tile init`
 
 6. Edit the generated `tile.yml` file to define your tile (more details below)
 
