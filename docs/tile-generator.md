@@ -371,6 +371,16 @@ forms:
       default: true
     - name: country_elsewhere
       label: Elsewhere
+- name: account-info-1
+  label: Account Info
+  description: Example Account Information Form
+  properties:
+  - name: username
+    type: string
+    label: Username
+  - name: password
+    type: secret
+    label: Password
 ```
 
 Properties defined in either section will be passed to all pushed applications
@@ -378,6 +388,11 @@ as environment variables (the name of the environment variable will be the same
 as the property name but in ALL_CAPS). They can also be referenced in other parts
 of the configuration file by using `(( .properties.<property-name> ))` instead
 of a hardcoded value.
+
+Properties of type `secret` will have their value hidden on the forms, and
+obfuscated in the installation logs (all but the first two characters will be
+replaced by `*****`). But their value will be passed to your applications in
+plain text as all other value types.
 
 ### Automatic Provisioning of Services
 

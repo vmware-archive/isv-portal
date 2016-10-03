@@ -202,9 +202,15 @@ customer_name: Jimmy's Johnnys
 street_address: Cartaway Alley
 city: New Jersey
 country: US
+username: SpongeBob
+password: { 'secret': SquarePants }
 app2:
   persistence_store_type: none
 ```
+
+*Note* the special handling of the `secret` type property. Specifying a simple
+string value for a field of this type will result in a `500 System Error` being
+returned from `pcf configure`.
 
 To see what changes are ready to be applied:
 
