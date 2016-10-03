@@ -601,6 +601,16 @@ a custom form instead:</p>
       default: true
     - name: country_elsewhere
       label: Elsewhere
+- name: account-info-1
+  label: Account Info
+  description: Example Account Information Form
+  properties:
+  - name: username
+    type: string
+    label: Username
+  - name: password
+    type: secret
+    label: Password
 </code></pre>
 
 <p>Properties defined in either section will be passed to all pushed applications
@@ -608,6 +618,10 @@ as environment variables (the name of the environment variable will be the same
 as the property name but in ALL_CAPS). They can also be referenced in other parts
 of the configuration file by using <code>(( .properties.&lt;property-name&gt; ))</code> instead
 of a hardcoded value.</p>
+<p>Properties of type <code>secret</code> will have their value hidden on the forms, and
+obfuscated in the installation logs (all but the first two characters will be
+replaced by <code>*****</code>). But their value will be passed to your applications in
+plain text as all other value types.</p>
 <h3 id="automatic-provisioning-of-services">Automatic Provisioning of Services</h3>
 <p>Tile generator automates the provisioning of services. Any application (including
 service brokers and docker-based applications) that are being pushed into the
