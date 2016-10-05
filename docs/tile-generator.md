@@ -43,33 +43,34 @@ For a 7-minute introduction into what tile generator is and does, see
 
 ## How to Use
 
-1. Check out the tile-generator repo:
+1. Install the tile-generator python package. We recommend using a
+   [virtualenv](https://virtualenv.pypa.io/en/stable/) environment to
+   avoid conflicts with other Python packages:
 
-        git clone https://github.com/cf-platform-eng/tile-generator.git
+    ```bash
+    virtualenv -p python2 tile-generator
+    source tile-generator/bin/activate
+    pip install tile-generator
+    ```
 
-2. Change to the root directory of the tile generator, and pull down the generator's dependencies:
+    This will put the `tile` and `pcf` commands in your `PATH`.
 
-        cd tile-generator
-        pip install -r requirements.txt
+2. Install the [BOSH CLI](https://bosh.io/docs/bosh-cli.html)
 
-3. Add the `bin` directory of tile-generator to your path:
+3. Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):
 
-        export PATH=`pwd`/bin:$PATH
+    ```bash
+    cd <your project dir>
+    tile init
+    ```
 
-    *If you expect to frequently use the tile generator, you may want to add this to your shell's startup script, i.e. `.profile`*
+4. Edit the generated `tile.yml` file to define your tile (more details below)
 
-4. Install the [BOSH CLI](https://bosh.io/docs/bosh-cli.html)
+5. Build your tile
 
-5. Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):
-
-        cd <your project dir>
-        tile init`
-
-6. Edit the generated `tile.yml` file to define your tile (more details below)
-
-7. Build your tile
-
-        tile build
+    ```bash
+    tile build
+    ```
 
 The generator will first create a BOSH release (in the `release` subdirectory),
 then wrap that release into a Pivotal tile (in the `product` subdirectory).
@@ -204,33 +205,24 @@ the plans reflect customer license keys. To allow operators to add plans from
 the tile configuration, add the following section at the top level of your tile.yml:
 
 ```
-service_plan_forms:
-- name: service_plans_1
-  label: Service 1 Plans 
-  description: Specify the plans you want Service 1 to offer
-  properties:
-  - name: description
-    type: string
-    description: "Some Description"
-    configurable: true
-  - name: license_key1
-    type: string
-    configurable: true
-    description: The license key for this plan
-  - name: num_seats1
-    type: integer
-    configurable: true
-    description: The number of available seats for this license
-    default: 1
-    constraints:
-      min: 1
-      max: 500
+dynamic_service_plans:
+- name: description
+  type: string
+  description: "Some Description"
+  configurable: true
+- name: key1
+  type: integer
+  description: "Key 1 of type integer"
+  configurable: true
+- name: key2
+  type: secret
+  description: "Key 2 of type Password"
+  configurable: true
 ```
 
 Name and GUID fields will be supplied by default for each plan, but all other fields
-are optional and customizable. Multiple forms are supported. The operator-configured
-plans will be passed to your service broker in JSON format in an environment variable
-named after your form but in ALL CAPS (in this case `SERVICE_PLANS_1`).
+are optional and customizable. The operator-configured plans will be passed to your
+service broker in JSON format in the `DYNAMIC_PLANS` environment variable.
 
 For an external service broker, use:
 
@@ -349,7 +341,7 @@ properties:
 ```
 
 If you want the properties to be configurable by the tile installer, place them on
-a custom form instead:
+a custom for instead:
 
 ```
 forms:
@@ -380,16 +372,6 @@ forms:
       default: true
     - name: country_elsewhere
       label: Elsewhere
-- name: account-info-1
-  label: Account Info
-  description: Example Account Information Form
-  properties:
-  - name: username
-    type: string
-    label: Username
-  - name: password
-    type: secret
-    label: Password
 ```
 
 Properties defined in either section will be passed to all pushed applications
@@ -397,18 +379,6 @@ as environment variables (the name of the environment variable will be the same
 as the property name but in ALL_CAPS). They can also be referenced in other parts
 of the configuration file by using `(( .properties.<property-name> ))` instead
 of a hardcoded value.
-
-All properties supported by Ops Manager may be used. The syntax is the same
-as used by Ops Manager, except that for simplicity property blueprints for
-form fields do not need to be declared separately. Instead, the declaration
-is included in the form itself. For a complete list of supported property
-types and syntax, see the
-[Ops Manager Product Template Reference](https://docs.pivotal.io/partners/product-template-reference.html).
-
-Properties of type `secret` will have their value hidden on the forms, and
-obfuscated in the installation logs (all but the first two characters will be
-replaced by `*****`). But their value will be passed to your applications in
-plain text as all other value types.
 
 ### Automatic Provisioning of Services
 
@@ -458,7 +428,7 @@ enforce that dependency by declaring it in your `tile.yml` file as follows:
 ```
 requires_product_versions:
 - name: p-mysql
-  version: '~> 1.7'
+  version '~> 1.7'
 ```
 
 If the required product is not present in the PCF installation, Ops Manager
@@ -511,7 +481,7 @@ stemcell_criteria:
 
 ## Versioning
 
-The tile generator uses [semver versioning](http://semver.org/). By default, `tile build` will
+The tile generator uses semver versioning. By default, `tile build` will
 generate the next patch release. Major and minor releases can be generated
 by explicitly specifying `tile build major` or `tile build minor`. Or to
 override the version number completely, specify a valid semver version on
