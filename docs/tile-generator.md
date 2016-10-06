@@ -47,11 +47,9 @@ For a 7-minute introduction into what tile generator is and does, see
    [virtualenv](https://virtualenv.pypa.io/en/stable/) environment to
    avoid conflicts with other Python packages:
 
-    ```bash
-    virtualenv -p python2 tile-generator
-    source tile-generator/bin/activate
-    pip install tile-generator
-    ```
+        virtualenv -p python2 tile-generator
+        source tile-generator/bin/activate
+        pip install tile-generator
 
     This will put the `tile` and `pcf` commands in your `PATH`.
 
@@ -59,18 +57,14 @@ For a 7-minute introduction into what tile generator is and does, see
 
 3. Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):
 
-    ```bash
-    cd <your project dir>
-    tile init
-    ```
+        cd <your project dir>
+        tile init
 
 4. Edit the generated `tile.yml` file to define your tile (more details below)
 
 5. Build your tile
 
-    ```bash
-    tile build
-    ```
+        tile build
 
 The generator will first create a BOSH release (in the `release` subdirectory),
 then wrap that release into a Pivotal tile (in the `product` subdirectory).
