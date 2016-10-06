@@ -308,21 +308,14 @@ combination of the following package types:</p>
 <h2 id="how-to-use">How to Use</h2>
 <ol>
 <li>
-<p>Check out the tile-generator repo:</p>
-<pre><code>git clone https://github.com/cf-platform-eng/tile-generator.git
+<p>Install the tile-generator python package. We recommend using a
+   <a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a> environment to
+   avoid conflicts with other Python packages:</p>
+<pre><code>virtualenv -p python2 tile-generator
+source tile-generator/bin/activate
+pip install tile-generator
 </code></pre>
-</li>
-<li>
-<p>Change to the root directory of the tile generator, and pull down the generator's dependencies:</p>
-<pre><code>cd tile-generator
-pip install -r requirements.txt
-</code></pre>
-</li>
-<li>
-<p>Add the <code>bin</code> directory of tile-generator to your path:</p>
-<pre><code>export PATH=`pwd`/bin:$PATH
-</code></pre>
-<p><em>If you expect to frequently use the tile generator, you may want to add this to your shell's startup script, i.e. <code>.profile</code></em></p>
+<p>This will put the <code>tile</code> and <code>pcf</code> commands in your <code>PATH</code>.</p>
 </li>
 <li>
 <p>Install the <a href="https://bosh.io/docs/bosh-cli.html">BOSH CLI</a></p>
@@ -330,7 +323,7 @@ pip install -r requirements.txt
 <li>
 <p>Then, from within the root directory of the project for which you wish to create a tile, initialize it as a tile repo (we recommend that this be a git repo, but this is not required):</p>
 <pre><code>cd &lt;your project dir&gt;
-tile init`
+tile init
 </code></pre>
 </li>
 <li>
@@ -452,33 +445,24 @@ specific users, orgs, and spaces to access your services.</p>
 <p>Some service brokers support operator-defined service plans, for instance when
 the plans reflect customer license keys. To allow operators to add plans from
 the tile configuration, add the following section at the top level of your tile.yml:</p>
-<pre><code>service_plan_forms:
-- name: service_plans_1
-  label: Service 1 Plans 
-  description: Specify the plans you want Service 1 to offer
-  properties:
-  - name: description
-    type: string
-    description: &quot;Some Description&quot;
-    configurable: true
-  - name: license_key1
-    type: string
-    configurable: true
-    description: The license key for this plan
-  - name: num_seats1
-    type: integer
-    configurable: true
-    description: The number of available seats for this license
-    default: 1
-    constraints:
-      min: 1
-      max: 500
+<pre><code>dynamic_service_plans:
+- name: description
+  type: string
+  description: &quot;Some Description&quot;
+  configurable: true
+- name: key1
+  type: integer
+  description: &quot;Key 1 of type integer&quot;
+  configurable: true
+- name: key2
+  type: secret
+  description: &quot;Key 2 of type Password&quot;
+  configurable: true
 </code></pre>
 
 <p>Name and GUID fields will be supplied by default for each plan, but all other fields
-are optional and customizable. Multiple forms are supported. The operator-configured
-plans will be passed to your service broker in JSON format in an environment variable
-named after your form but in ALL CAPS (in this case <code>SERVICE_PLANS_1</code>).</p>
+are optional and customizable. The operator-configured plans will be passed to your
+service broker in JSON format in the <code>DYNAMIC_PLANS</code> environment variable.</p>
 <p>For an external service broker, use:</p>
 <pre><code>- name: my-application
   type: external-broker
@@ -581,7 +565,7 @@ the to the properties section of <code>tile.yml</code>:</p>
 </code></pre>
 
 <p>If you want the properties to be configurable by the tile installer, place them on
-a custom form instead:</p>
+a custom for instead:</p>
 <pre><code>forms:
 - name: custom-form1
   label: Test Tile
@@ -610,16 +594,6 @@ a custom form instead:</p>
       default: true
     - name: country_elsewhere
       label: Elsewhere
-- name: account-info-1
-  label: Account Info
-  description: Example Account Information Form
-  properties:
-  - name: username
-    type: string
-    label: Username
-  - name: password
-    type: secret
-    label: Password
 </code></pre>
 
 <p>Properties defined in either section will be passed to all pushed applications
@@ -627,16 +601,6 @@ as environment variables (the name of the environment variable will be the same
 as the property name but in ALL_CAPS). They can also be referenced in other parts
 of the configuration file by using <code>(( .properties.&lt;property-name&gt; ))</code> instead
 of a hardcoded value.</p>
-<p>All properties supported by Ops Manager may be used. The syntax is the same
-as used by Ops Manager, except that for simplicity property blueprints for
-form fields do not need to be declared separately. Instead, the declaration
-is included in the form itself. For a complete list of supported property
-types and syntax, see the
-<a href="https://docs.pivotal.io/partners/product-template-reference.html">Ops Manager Product Template Reference</a>.</p>
-<p>Properties of type <code>secret</code> will have their value hidden on the forms, and
-obfuscated in the installation logs (all but the first two characters will be
-replaced by <code>*****</code>). But their value will be passed to your applications in
-plain text as all other value types.</p>
 <h3 id="automatic-provisioning-of-services">Automatic Provisioning of Services</h3>
 <p>Tile generator automates the provisioning of services. Any application (including
 service brokers and docker-based applications) that are being pushed into the
@@ -676,7 +640,7 @@ letting the user choose between some standard brokers.</p>
 enforce that dependency by declaring it in your <code>tile.yml</code> file as follows:</p>
 <pre><code>requires_product_versions:
 - name: p-mysql
-  version: '~&gt; 1.7'
+  version '~&gt; 1.7'
 </code></pre>
 
 <p>If the required product is not present in the PCF installation, Ops Manager
@@ -717,7 +681,7 @@ a <code>stemcell-criteria</code> section and replacing the appopriate values:</p
 </code></pre>
 
 <h2 id="versioning">Versioning</h2>
-<p>The tile generator uses <a href="http://semver.org/">semver versioning</a>. By default, <code>tile build</code> will
+<p>The tile generator uses semver versioning. By default, <code>tile build</code> will
 generate the next patch release. Major and minor releases can be generated
 by explicitly specifying <code>tile build major</code> or <code>tile build minor</code>. Or to
 override the version number completely, specify a valid semver version on
