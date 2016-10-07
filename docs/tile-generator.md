@@ -43,7 +43,9 @@ For a 7-minute introduction into what tile generator is and does, see
 
 ## How to Use
 
-1. Install the tile-generator python package. We recommend using a
+1. Install the tile-generator python package.
+   **Note**: tile-generator requires **Python 2**, and will *not* work with Python 3.
+   We recommend using a
    [virtualenv](https://virtualenv.pypa.io/en/stable/) environment to
    avoid conflicts with other Python packages:
 
