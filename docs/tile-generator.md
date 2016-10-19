@@ -196,6 +196,19 @@ of just `app` or `docker-app`:
     Operators will have to use the `cf enable-service-access` command to allow
     specific users, orgs, and spaces to access your services.
 
+Your broker will be automatically registered with the Cloud Controller. The
+Cloud Controller will invoke your broker's endpoints, and it will use basic
+authentication to secure those API calls. The credentials it will use are
+passed to your broker in two environment variables:
+
+```
+SECURITY_USER_NAME
+SECURITY_USER_PASSWORD
+```
+
+Your broker is expected to accept those credentials. If it doesn't, automatic
+broker registration will fail.
+
 Some service brokers support operator-defined service plans, for instance when
 the plans reflect customer license keys. To allow operators to add plans from
 the tile configuration, add the following section at the top level of your tile.yml:
