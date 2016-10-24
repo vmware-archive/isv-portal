@@ -5,7 +5,7 @@ site is automatically updated with the most recent changes on the master
 branch of this repo.
 
 - Website: [Github Pages](http://cf-platform-eng.github.io/isv-portal)
-- CI Pipeline: [Concourse](https://ci.run-01.haas-26.pez.pivotal.io/pipelines/isv-portal)
+- CI Pipeline: [Concourse](https://concourse.run-03.haas-71.pez.pivotal.io/teams/main/pipelines/isv-portal)
 
 # Contributing
 
