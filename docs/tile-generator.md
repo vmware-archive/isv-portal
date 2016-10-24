@@ -519,6 +519,41 @@ stemcell_criteria:
   version: '3146.5'     #NOTE: You must quote the version to force the type to be string
 ```
 
+### Custom Errands
+
+Tile generator supplies standard errands to deploy and delete CF type packages. You can
+replace or augment those errands by specifying errand shell commands in your tile.yml
+file. For example:
+
+```
+packages:
+- name: meta-buildpack
+  type: buildpack
+  buildpack_order: 0 # Go to head of list
+  path: meta_buildpack.zip
+  deploy: |
+    cp meta_buildpack.zip meta_buildpack-v{{context.version}}.zip
+    existing=`cf buildpacks | grep '^meta_buildpack'`
+    if [ -z "$existing" ]; then
+      cf create-buildpack meta_buildpack meta_buildpack-v{{context.version}}.zip 0
+    else
+      semver=`echo "$existing" | sed 's/.* meta_buildpack-v\(.*\)\.zip/\1/'`
+      if is_newer "{{context.version}}" "$semver"; then
+        cf update-buildpack meta_buildpack -p meta_buildpack-v{{context.version}}.zip
+      else
+        echo "Newer version ($semver) of meta_buildpack is already present"
+      fi
+      cf update-buildpack meta_buildpack -i 0
+    fi
+  delete: |
+    # Intentional no-op, as others may have a dependency on this
+```
+
+`deploy` and `delete` will completely replace the standard errand commands for the
+package in which you include them. If you want to keep the standard commands, but
+add additional commands to execute before or after the standard errand, use
+`pre-deploy`, `post-deploy`, `pre-delete`, and/or `post-delete` instead.
+
 ## Versioning
 
 The tile generator uses [semver versioning](http://semver.org/). By default, `tile build` will
