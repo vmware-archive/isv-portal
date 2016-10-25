@@ -206,6 +206,15 @@ username: SpongeBob
 password: { 'secret': SquarePants }
 app2:
   persistence_store_type: none
+# In PCF 1.8+, BOSH-job-specific configuration is supported:
+jobs:
+  a_job:
+    # Job resource configuration:
+    resource_config:
+      persistent_disk:
+        size_mb: "10240"
+    # Job-specific property configuration:
+    job_property: property_value
 ```
 
 *Note* the special handling of the `secret` type property. Specifying a simple
