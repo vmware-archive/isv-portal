@@ -275,6 +275,80 @@ For an external service broker, use:
   internal_service_names: 'service1,service2'
 ```
 
+#### Bosh Releases
+You can include [BOSH releases](http://bosh.io/docs/release.html) in
+your tile with the `bosh-release` package type. For example, here is a
+package definition to include a Redis BOSH release:
+
+```
+- name: redis
+  type: bosh-release
+  path: resources/redis-12+dev.1.tgz
+  jobs:
+  - name: redis_leader_z1
+    templates:
+    - name: redis
+      release: redis
+    memory: 512
+    ephemeral_disk: 4096
+    persistent_disk: 4096
+    cpu: 2
+    static_ip: 1
+    max_in_flight: 1
+    properties:
+      network: redis1
+      redis:
+        password: red!s
+  - name: redis_z1
+    templates:
+    - name: redis
+      release: redis
+    instances: 2
+    memory: 512
+    ephemeral_disk: 4096
+    persistent_disk: 4096
+    cpu: 2
+    static_ip: 1
+    properties:
+      network: redis1
+      redis:
+        master: (( .redis_leader_z1.first_ip ))
+        password: red!s
+  - name: redis_test_slave_z1
+    templates:
+    - name: redis
+      release: redis
+    instances: 1
+    memory: 512
+    ephemeral_disk: 4096
+    persistent_disk: 4096
+    cpu: 2
+    static_ip: 1
+    properties:
+      network: redis1
+      redis:
+        master: (( .redis_leader_z1.first_ip ))
+        password: red!s
+  - name: acceptance-tests
+    templates:
+    - name: acceptance-tests
+      release: redis
+    lifecycle: errand
+    post_deploy: true
+    memory: 512
+    ephemeral_disk: 4096
+    persistent_disk: 0
+    cpu: 2
+    dynamic_ip: 1
+    properties:
+      redis:
+        master: (( .redis_leader_z1.first_ip ))
+        password: red!s
+        slave: (( .redis_test_slave_z1.first_ip ))
+```
+
+
+
 #### Buildpacks
 
 ```
