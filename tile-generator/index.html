@@ -341,6 +341,23 @@ tile init
 then wrap that release into a Pivotal tile (in the <code>product</code> subdirectory).
 If required for the installation, it will automatically pull down the latest
 release version of the Cloud Foundry CLI.</p>
+<p>Tile generator is also available pre-installed in a docker image on
+<a href="https://hub.docker.com/r/cfplatformeng/tile-generator/">Docker Hub</a>.
+This image contains the tile-generator <code>tile</code> and <code>pcf</code> commands, all the
+necessary Python dependencies, as well as the BOSH CLI.</p>
+<p>You can use this in Concourse pipelines by specifying it as the base image
+for your tasks:</p>
+<pre><code>  - task: tile-build
+    config:
+      platform: linux
+      image: cfplatformeng/tile-generator
+</code></pre>
+
+<p>Or you can derive your own docker images from this one by using it as the base
+image in your Dockerfile:</p>
+<pre><code>FROM cfplatformeng/tile-generator
+</code></pre>
+
 <h2 id="building-the-sample">Building the Sample</h2>
 <p>The repository includes a sample tile that exercises most of the features of the
 tile generator (it is used by the CI pipeline to verify that things work correctly).
