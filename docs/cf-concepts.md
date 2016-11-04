@@ -64,3 +64,12 @@ alongside the customer application.
 - [Agent Injection with the meta-buildpack](https://github.com/guidowb/meta-buildpack)
 - [Using .profile.d](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html#profiled)
 
+<a name="nozzles"></a>
+## Nozzles
+Cloud Foundry's logging system, loggregator,
+has a feature called firehose. The firehose includes the combined stream of logs from all apps,
+plus metrics data from CF components, and is intended to be used by operators and administrators.
+
+A nozzle takes this data and forwards it to an external logging and/or metrics solution.
+
+- [Loggregator system](https://github.com/cloudfoundry/loggregator)
