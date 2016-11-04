@@ -1,9 +1,9 @@
 # How to Build a Managed Service
 
 A managed service is a service deployed on Cloud Foundry infrastructure
-(in other words, the same IaaS that yoru particular Cloud Foundry instance
+(in other words, the same IaaS that your particular Cloud Foundry instance
 is deployed on) by the same orchestration tool, [bosh](http://bosh.io).
-Offering your sfotware as a managed service means that your PCF customers
+Offering your software as a managed service means that your PCF customers
 will not have to learn different ways to deploy, manage, and monitor
 different components of their application platform.
 
