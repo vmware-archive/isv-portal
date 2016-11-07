@@ -648,7 +648,7 @@ packages:
 `deploy` and `delete` will completely replace the standard errand commands for the
 package in which you include them. If you want to keep the standard commands, but
 add additional commands to execute before or after the standard errand, use
-`pre-deploy`, `post-deploy`, `pre-delete`, and/or `post-delete` instead.
+`pre_deploy`, `post_deploy`, `pre_delete`, and/or `post_delete` instead.
 
 ## Versioning
 
