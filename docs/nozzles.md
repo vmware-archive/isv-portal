@@ -1,5 +1,22 @@
 # How to Build a Nozzle
 
+## Overview
+
+Cloud Foundry's logging system, Loggregator,
+has a feature called firehose. The firehose includes the combined stream of logs 
+and metrics from every apps as well as
+the Cloud Foundry platform itself. Building a nozzle could be a solution for
+
+* Draining metrics to an external dashboard product for sytem operators
+* Sending every http request's details into a search tool
+* Draining all application logs to an external system 
+* Thinking a little differently, [this video shows auto-scaling an app based on firehose metrics](https://youtu.be/skJKvQfpKD4?t=1021)
+  
+[Firehose-to-syslog is a real world, production example](https://github.com/cloudfoundry-community/firehose-to-syslog)
+of a nozzle.
+
+## Building
+
 Developing a nozzle should be done in Go, as this allows leveraging the
 [NOAA library](https://github.com/cloudfoundry/noaa).
 NOAA does the heavy lifting of establishing
@@ -50,14 +67,21 @@ The events channel receives six different types of events.
 * LogMessage:  a log message for an individual app
 * ContainerMetric: application container information (for example, memory used)
 
-As you can see from the above events, this data targets two different personas:
-platform operators and application developers. Keep this in mind while developing
-a nozzle.
-
 For the full details on events, check the
 [dropsonde protocol](https://github.com/cloudfoundry/dropsonde-protocol/tree/master/events).
 
-Read For a full working example, see [firehose-nozzle](https://github.com/cf-platform-eng/firehose-nozzle).
+The above events show how this data targets two different personae:
+platform operators and application developers. Keep this in mind when designing an integration.
+
+Having `doppler.firehose` scope gets a nozzle data for *every* application as well as the platform. 
+Any filtering based on the event payload is the nozzle implementor's responsibility.
+An advanced integration could do something like combine a
+[service broker](service-brokers.md) with a nozzle to:
+
+* Let application developers opt-in to logging (implementing filtering in the nozzle)
+* Establish [SSO](https://docs.cloudfoundry.org/services/dashboard-sso.html) exchange for authentication such that developers only can access logs for their space's apps
+
+For a full working example, see [firehose-nozzle](https://github.com/cf-platform-eng/firehose-nozzle).
 
 ## Deployment
 
@@ -110,3 +134,10 @@ as a reference for building your nozzle
 [datadog-firehose-nozzle](https://github.com/cloudfoundry-incubator/datadog-firehose-nozzle)
 
   * A simpler implementation than other real examples
+
+## Other References
+
+* CF Summit Video [Monitoring Cloud Foundry: Learning about the Firehose](https://youtu.be/skJKvQfpKD4)
+* [Loggregator github repo](https://github.com/cloudfoundry/loggregator/)
+* [Overview of the Loggregator System](https://docs.cloudfoundry.org/loggregator/architecture.html)
+* [Loggregator's Slack Channel](https://cloudfoundry.slack.com/messages/loggregator/)
