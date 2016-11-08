@@ -45,7 +45,7 @@ The events channel receives six different types of events.
 
 * ValueMetric: some platform metric at a point in time, emitted by platform components (for example, how many 2xx responses the router has sent out)
 * CounterEvent: an incrementing counter, emitted by platform components (for example, a diego cells remaining memory capacity)
-* Error: a error
+* Error: an error
 * HttpStartStop: http request details, including both application and platform requests
 * LogMessage:  a log message for an individual app
 * ContainerMetric: application container information (for example, memory used)
