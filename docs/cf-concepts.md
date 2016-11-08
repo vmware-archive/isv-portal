@@ -66,7 +66,7 @@ alongside the customer application.
 
 <a name="nozzles"></a>
 ## Nozzles
-Cloud Foundry's logging system, loggregator,
+Cloud Foundry's logging system, Loggregator,
 has a feature called firehose. The firehose includes the combined stream of logs from all apps,
 plus metrics data from CF components, and is intended to be used by operators and administrators.
 
