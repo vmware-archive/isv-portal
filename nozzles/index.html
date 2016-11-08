@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Contacts - ISV Portal</title>
+	<title>Nozzles - ISV Portal</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -104,7 +104,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reference <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -171,8 +171,8 @@
 
         
             
-<li >
-    <a href="../nozzles/">Nozzles</a>
+<li class="active">
+    <a href="./">Nozzles</a>
 </li>
 
         
@@ -212,8 +212,8 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Contacts</a>
+                    <li >
+                        <a href="../contacts/">Contacts</a>
                     </li>
                 
                 
@@ -228,12 +228,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../troubleshooting/">
+                        <a rel="next" href="../embedded-agents/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../setup-pcfdev/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -249,34 +249,147 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#contact-us">Contact Us</a></li>
+        <li class="main active"><a href="#how-to-build-a-nozzle">How to Build a Nozzle</a></li>
         
-            <li><a href="#contributions">Contributions</a></li>
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#building">Building</a></li>
+        
+            <li><a href="#deployment">Deployment</a></li>
+        
+            <li><a href="#open-source-nozzles">Open Source Nozzles</a></li>
+        
+            <li><a href="#other-references">Other References</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="contact-us">Contact Us</h1>
-<p>To learn more about the Pivotal IVS Partner Program, or to request
-our assistance with your integration project, please contact us at
-one of the following addresses:</p>
+<h1 id="how-to-build-a-nozzle">How to Build a Nozzle</h1>
+<h2 id="overview">Overview</h2>
+<p>Cloud Foundry's logging system, Loggregator,
+has a feature called firehose. The firehose includes the combined stream of logs 
+and metrics from every apps as well as
+the Cloud Foundry platform itself. Building a nozzle could be a solution for</p>
 <ul>
-<li>Program Manager: <a href="mailto:mjoseph@pivotal.io">Marina Joseph</a></li>
-<li>Business Development: <a href="mailto:nbadiey@pivotal.io">Nima Badiey</a></li>
-<li>Platform Engineering: <a href="mailto:gwestenberg@pivotal.io">Guido Westenberg</a></li>
+<li>Draining metrics to an external dashboard product for sytem operators</li>
+<li>Sending every http request's details into a search tool</li>
+<li>Draining all application logs to an external system </li>
+<li>Thinking a little differently, <a href="https://youtu.be/skJKvQfpKD4?t=1021">this video shows auto-scaling an app based on firehose metrics</a></li>
 </ul>
-<h2 id="contributions">Contributions</h2>
-<p>The source code for this site is in a public
-<a href="https://github.com/cf-platform-eng/isv-portal">Github repository</a>.</p>
-<p>We greatly appreciate contributions to the content in the form of pull
-requests, as well as Github issues with corrections, comments, or
-suggestions.</p>
-<p>The Github Pages site is created from the Markdown source files using
-<a href="http://www.mkdocs.org/">mkdocs</a>. To preview your changes, run the
-command <code>mkdocs serve</code> in the root directory of your local git clone
-of this repository.</p></div>
+<p><a href="https://github.com/cloudfoundry-community/firehose-to-syslog">Firehose-to-syslog is a real world, production example</a>
+of a nozzle.</p>
+<h2 id="building">Building</h2>
+<p>Developing a nozzle should be done in Go, as this allows leveraging the
+<a href="https://github.com/cloudfoundry/noaa">NOAA library</a>.
+NOAA does the heavy lifting of establishing
+an authenticated websocket connection to the logging system
+as well as de-serializing the protocol buffers.</p>
+<p>Draining the logs consists of:</p>
+<ol>
+<li>Authenticating</li>
+<li>Establishing a connection to the logging system</li>
+<li>Forwarding events on to their ultimate destination</li>
+</ol>
+<p>Authenticate by fetching a token from <a href="https://github.com/cloudfoundry/uaa">uaa</a>
+with a client having the <code>doppler.firehose</code> scope:</p>
+<pre><code class="go">    uaaClient, err := uaago.NewClient(uaaUrl)
+    if err != nil {
+        panic(err)
+    }
+
+    token, err := uaaClient.GetAuthToken(username, password, skipSSL)
+    if err != nil {
+        panic(err)
+    }
+</code></pre>
+
+<p>Using the token, create a consumer and connect to the Firehose with a subscription id.
+The id is important, since the firehose looks for connections having the same id and only
+sends an event to one of those connections. This is how a nozzle developer can prevent
+message loss during upgrades an other deployments: run at least two instances.</p>
+<pre><code class="go">    consumer := consumer.New(config.TrafficControllerURL, &amp;tls.Config{
+        InsecureSkipVerify: config.SkipSSL,
+    }, nil)
+    events, errors := consumer.Firehose(firehoseSubscriptionID, token)
+</code></pre>
+
+<p><code>Firehose</code> will give back two channels: one for events and a second for errors.</p>
+<p>The events channel receives six different types of events.</p>
+<ul>
+<li>ValueMetric: some platform metric at a point in time, emitted by platform components (for example, how many 2xx responses the router has sent out)</li>
+<li>CounterEvent: an incrementing counter, emitted by platform components (for example, a diego cells remaining memory capacity)</li>
+<li>Error: an error</li>
+<li>HttpStartStop: http request details, including both application and platform requests</li>
+<li>LogMessage:  a log message for an individual app</li>
+<li>ContainerMetric: application container information (for example, memory used)</li>
+</ul>
+<p>For the full details on events, check the
+<a href="https://github.com/cloudfoundry/dropsonde-protocol/tree/master/events">dropsonde protocol</a>.</p>
+<p>The above events show how this data targets two different personae:
+platform operators and application developers. Keep this in mind when designing an integration.</p>
+<p>Having <code>doppler.firehose</code> scope gets a nozzle data for <em>every</em> application as well as the platform. 
+Any filtering based on the event payload is the nozzle implementor's responsibility.
+An advanced integration could do something like combine a
+<a href="../service-brokers/">service broker</a> with a nozzle to:</p>
+<ul>
+<li>Let application developers opt-in to logging (implementing filtering in the nozzle)</li>
+<li>Establish <a href="https://docs.cloudfoundry.org/services/dashboard-sso.html">SSO</a> exchange for authentication such that developers only can access logs for their space's apps</li>
+</ul>
+<p>For a full working example, see <a href="https://github.com/cf-platform-eng/firehose-nozzle">firehose-nozzle</a>.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Once you've build a nozzle, there are a couple options for deployment</p>
+<h4 id="as-a-managed-service">As a Managed Service</h4>
+<p>Visit <a href="../managed-services/">managed service</a>
+for more details on what it means to be a managed service.</p>
+<p>See also this
+<a href="https://github.com/cloudfoundry-incubator/example-nozzle-release">example nozzle BOSH release</a>.</p>
+<h4 id="as-an-app">As an App</h4>
+<p>You could also deploy the nozzle on the elastic runtime itself.
+Visit the Tile Generator's
+<a href="../tile-generator/#pushed-applications">section on pushed appliactions</a>
+for more details.</p>
+<h2 id="open-source-nozzles">Open Source Nozzles</h2>
+<p>There are several open source examples you could use
+as a reference for building your nozzle</p>
+<p><a href="https://github.com/cf-platform-eng/firehose-nozzle">firehose-nozzle</a></p>
+<ul>
+<li>Example that simply writes to standard out</li>
+<li>Useful starting point: scaffolding, tests, etc are in place</li>
+</ul>
+<p><a href="https://github.com/cloudfoundry-incubator/example-nozzle">example-nozzle</a></p>
+<ul>
+<li>A single file implementation with no tests: as minimal as things can get</li>
+</ul>
+<p><a href="https://github.com/cloudfoundry-community/gcp-tools-release">gcp-tools-release</a></p>
+<ul>
+<li>In addition to Nozzle data, it drains component syslogs and health data</li>
+<li>Shows how to do a bosh-addon (for additional data outside a nozzle)</li>
+<li>Nozzle is managed via bosh</li>
+<li>Raw logs and metrics data take different paths in the source</li>
+</ul>
+<p><a href="https://github.com/cloudfoundry-community/firehose-to-syslog">firehose-to-syslog</a></p>
+<ul>
+<li>Includes implementation code that adds additional metadata (potentially needed for acl)<ul>
+<li>Application name</li>
+<li>Space guid &amp; name</li>
+<li>Org guid &amp; name</li>
+</ul>
+</li>
+<li><a href="https://github.com/cloudfoundry-community/logsearch-for-cloudfoundry">logsearch-for-cloudfoundry</a> packages this nozzle as a BOSH release</li>
+</ul>
+<p><a href="https://github.com/cloudfoundry-incubator/datadog-firehose-nozzle">datadog-firehose-nozzle</a></p>
+<ul>
+<li>A simpler implementation than other real examples</li>
+</ul>
+<h2 id="other-references">Other References</h2>
+<ul>
+<li>CF Summit Video <a href="https://youtu.be/skJKvQfpKD4">Monitoring Cloud Foundry: Learning about the Firehose</a></li>
+<li><a href="https://github.com/cloudfoundry/loggregator/">Loggregator github repo</a></li>
+<li><a href="https://docs.cloudfoundry.org/loggregator/architecture.html">Overview of the Loggregator System</a></li>
+<li><a href="https://cloudfoundry.slack.com/messages/loggregator/">Loggregator's Slack Channel</a></li>
+</ul></div>
             
         </div>
 

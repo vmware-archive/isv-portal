@@ -170,6 +170,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../nozzles/">Nozzles</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -255,6 +261,8 @@
         
             <li><a href="#embedded-agents">Embedded Agents</a></li>
         
+            <li><a href="#nozzles">Nozzles</a></li>
+        
     
     </ul>
 </div></div>
@@ -317,6 +325,15 @@ alongside the customer application.</p>
 <ul>
 <li><a href="https://github.com/guidowb/meta-buildpack">Agent Injection with the meta-buildpack</a></li>
 <li><a href="http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html#profiled">Using .profile.d</a></li>
+</ul>
+<p><a name="nozzles"></a></p>
+<h2 id="nozzles">Nozzles</h2>
+<p>Cloud Foundry's logging system, Loggregator,
+has a feature called firehose. The firehose includes the combined stream of logs from all apps,
+plus metrics data from CF components, and is intended to be used by operators and administrators.</p>
+<p>A nozzle takes this data and forwards it to an external logging and/or metrics solution.</p>
+<ul>
+<li><a href="https://github.com/cloudfoundry/loggregator">Loggregator system</a></li>
 </ul></div>
             
         </div>
