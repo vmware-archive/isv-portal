@@ -97,7 +97,7 @@ as a reference for building your nozzle
   * In addition to Nozzle data, it drains component syslogs and health data
   * Shows how to do a bosh-addon (for additional data outside a nozzle)
   * Nozzle is managed via bosh
-  * Raw log and metrics data take different paths in the source
+  * Raw logs and metrics data take different paths in the source
 
 [firehose-to-syslog](https://github.com/cloudfoundry-community/firehose-to-syslog)
 
