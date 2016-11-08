@@ -35,6 +35,7 @@ points might include:
 - [Managed Services](stages.md#managed)
 - [Buildpacks](cf-concepts.md#buildpacks)
 - [Embedded Agents](cf-concepts.md#agents)
+- [Nozzles](cf-concepts.md#nozzles)
 - Or any combination of the above
 
 If you are not intimately familiar with Cloud Foundry, this is one of the
@@ -52,6 +53,7 @@ how to build one or more of:
 - [Dynamic services](dynamic-services.md)
 - [Buildpacks](buildpacks.md)
 - [Embedded agents](embedded-agents.md)
+- [Nozzles](nozzles.md)
 
 Self-learning is definitely possible. If you are interested in more
 organized learning, Pivotal provides many different classes and labs for
