@@ -163,7 +163,7 @@ filename="${filename%-*}"
 
 cp ${file} ../../tile/${filename}-${ver}.pivotal
 cp tile-history.yml ../../tile-history-new/tile-history-${ver}.yml
-```
+``` 
 
 9. string this job together with the other jobs in your pipeline (probably after a successful tile-build).
 The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.
