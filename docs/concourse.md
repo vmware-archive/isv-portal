@@ -62,15 +62,15 @@ bucket) in your pipeline.yml file:
   ```
 1. Declare a resource to store your tile in your pipeline.yml file:
 
-```yml
-- name: tile
-  type: s3
-  source:
-    access_key_id: your-aws-key-id-don't-check-this-in!
-    bucket: your-aws-bucket-name
-    regexp: .*-(?P<version>.*)\.pivotal
-    secret_access_key: your-aws-access-key-don't-check-this-in!
-```
+  ```yml
+  - name: tile
+    type: s3
+    source:
+      access_key_id: your-aws-key-id-don't-check-this-in!
+      bucket: your-aws-bucket-name
+      regexp: .*-(?P<version>.*)\.pivotal
+      secret_access_key: your-aws-access-key-don't-check-this-in!
+  ```
 1. Declare a resource to store a tile-history.yml file. This file is needed by the tile-generator process.
 It makes sense to store this in the same place as your build artifacts (but you can store it in another bucket if you wish):
 
