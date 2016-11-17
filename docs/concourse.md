@@ -36,10 +36,10 @@ You describe this pipeline in a pipeline.yml file that is then uploaded to the
 concourse server. [Tile Generator](tile-generator.md) contains a sample
 pipeline that you can clone for your own tile. 
 
-We have provided a docker image to help you automate your tile creation tasks via concourse. 
-To make use of this image, you will want to do he following:
+We have provided a [docker image](https://hub.docker.com/r/cfplatformeng/tile-generator/) to help you 
+automate your tile creation tasks via concourse. To make use of this image, you will want to do he following:
 
-1. Declare a resource source repository (for example, git) for your tile in your pipeline.yml file:
+1. Declare a concourse resource for the tile source in your pipeline.yml file:
 
   ```yml
   - name: tile-source
@@ -48,8 +48,7 @@ To make use of this image, you will want to do he following:
       branch: master
       uri: https://github.com/your-tile-project-repo
   ```
-1. Declare a resource to store the artifacts of your build process (for example, an aws s3
-bucket) in your pipeline.yml file:
+1. Declare a resource to store the artifacts of your build process (for example, an aws s3 bucket) in your pipeline.yml file:
 
   ```yml
   - name: tile-build
@@ -71,8 +70,7 @@ bucket) in your pipeline.yml file:
       regexp: .*-(?P<version>.*)\.pivotal
       secret_access_key: your-aws-access-key-don't-check-this-in!
   ```
-1. Declare a resource to store a tile-history.yml file. This file is needed by the tile-generator process.
-It makes sense to store this in the same place as your build artifacts (but you can store it in another bucket if you wish):
+1. Declare a resource to store a tile-history.yml file. This file is needed by the tile-generator process:
 
   ```yml
   - name: tile-history
@@ -83,8 +81,7 @@ It makes sense to store this in the same place as your build artifacts (but you 
       regexp: tile-history-(?P<version>.*)\.yml
       secret_access_key: your-aws-access-key-don't-check-this-in!
   ```
-1. (Optional) consider managing the version numbers of your project via the use of [semver](http://semver.org/). Concourse has
-support for this. If you decide to do this, add something like the following to your pipeline.yml file:
+1. (Optional) consider managing the versioning of your project via [semver](http://semver.org/). If you decide to do this, add something like the following to your pipeline.yml file:
 
   ```yml
   - name: version
@@ -114,8 +111,7 @@ support for this. If you decide to do this, add something like the following to 
     - put: tile
       params: {file: broker-tile/*.pivotal}
   ```
-1. define the tile build task via a task.yml file (per the above job configuration, this file would
-be added to the ci/build-tile directory in your source repository):
+1. define the tile build task via a task.yml file (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):
 
   ```yml
   platform: linux
@@ -135,8 +131,7 @@ be added to the ci/build-tile directory in your source repository):
   run:
     path: tile-repo/ci/build-tile/task.sh
 ```
-1. create a task.sh script to build the tile (per the above job configuration, this file would
-be added to the ci/build-tile directory in your source repository):
+1. create a task.sh script to build the tile (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):
 
   ```sh
   #!/bin/sh -ex
@@ -145,19 +140,17 @@ be added to the ci/build-tile directory in your source repository):
   
   cp ../../tile-build/* the-place-in-tile.yml-where-the-build-goes
   
-  ver=`more ../../version/number`
+  ver=`more ../version/number`
   tile build ${ver}
   
   file=`ls product/*.pivotal`
   filename=$(basename "${file}")
   filename="${filename%-*}"
   
-  cp ${file} ../../tile/${filename}-${ver}.pivotal
-  cp tile-history.yml ../../tile-history-new/tile-history-${ver}.yml
+  cp ${file} ../tile/${filename}-${ver}.pivotal
+  cp tile-history.yml ../tile-history-new/tile-history-${ver}.yml
   ``` 
-1. string this job together with the other jobs in your pipeline (probably after a successful tile-build).
-The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.
-
+1. string this job together with the other jobs in your pipeline (probably after a successful tile-build). The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.
 
 <a name="pool"></a> 
 ## Setting up PCF for your CI Pipeline
