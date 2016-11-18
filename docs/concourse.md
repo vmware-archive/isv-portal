@@ -10,7 +10,7 @@ with the latest Alpha release of the platform.
 Our tool of choice for setting up CI is [concourse](http://concourse.ci/).
 While you are of course free to use whetever system you are familiar with,
 our tools and documentation are built to make concourse CI as easy as
-pssoble.
+possible.
 
 <a name="server"></a> 
 ## Setting up a Concourse Server
@@ -37,7 +37,7 @@ concourse server. [Tile Generator](tile-generator.md) contains a sample
 pipeline that you can clone for your own tile. 
 
 We have provided a [docker image](https://hub.docker.com/r/cfplatformeng/tile-generator/) to help you 
-automate your tile creation tasks via concourse. To make use of this image, you will want to do he following:
+automate your tile creation tasks via concourse. To make use of this image, you will want to do the following:
 
 1. Declare a concourse resource for the tile source in your pipeline.yml file:
 
