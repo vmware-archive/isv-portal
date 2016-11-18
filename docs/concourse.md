@@ -10,7 +10,7 @@ with the latest Alpha release of the platform.
 Our tool of choice for setting up CI is [concourse](http://concourse.ci/).
 While you are of course free to use whetever system you are familiar with,
 our tools and documentation are built to make concourse CI as easy as
-pssoble.
+possible.
 
 <a name="server"></a> 
 ## Setting up a Concourse Server
@@ -34,8 +34,123 @@ A typical CI pipeline for a tile consists of the following jobs:
 
 You describe this pipeline in a pipeline.yml file that is then uploaded to the
 concourse server. [Tile Generator](tile-generator.md) contains a sample
-pipeline that you can clone for your own tile. We are working on automating
-the process of generating a pipeline template for you.
+pipeline that you can clone for your own tile. 
+
+We have provided a [docker image](https://hub.docker.com/r/cfplatformeng/tile-generator/) to help you 
+automate your tile creation tasks via concourse. To make use of this image, you will want to do the following:
+
+1. Declare a concourse resource for the tile source in your pipeline.yml file:
+
+  ```yml
+  - name: tile-source
+    type: git
+    source:
+      branch: master
+      uri: https://github.com/your-tile-project-repo
+  ```
+1. Declare a resource to store the artifacts of your build process (for example, an aws s3 bucket) in your pipeline.yml file:
+
+  ```yml
+  - name: tile-build
+    type: s3
+    source:
+      access_key_id: your-aws-key-id-don't-check-this-in!
+      bucket: your-aws-bucket-name
+      regexp: .*-(?P<version>.*)\.jar
+      secret_access_key: your-aws-access-key-don't-check-this-in!
+  ```
+1. Declare a resource to store your tile in your pipeline.yml file:
+
+  ```yml
+  - name: tile
+    type: s3
+    source:
+      access_key_id: your-aws-key-id-don't-check-this-in!
+      bucket: your-aws-bucket-name
+      regexp: .*-(?P<version>.*)\.pivotal
+      secret_access_key: your-aws-access-key-don't-check-this-in!
+  ```
+1. Declare a resource to store a tile-history.yml file. This file is needed by the tile-generator process:
+
+  ```yml
+  - name: tile-history
+    type: s3
+    source:
+      access_key_id: your-aws-key-id-don't-check-this-in!
+      bucket: your-aws-bucket-name
+      regexp: tile-history-(?P<version>.*)\.yml
+      secret_access_key: your-aws-access-key-don't-check-this-in!
+  ```
+1. (Optional) consider managing the versioning of your project via [semver](http://semver.org/). If you decide to do this, add something like the following to your pipeline.yml file:
+
+  ```yml
+  - name: version
+    type: semver
+    source:
+      bucket: your-aws-bucket-name
+      key: current-version
+      access_key_id: your-aws-key-id-don't-check-this-in!
+      secret_access_key: your-aws-access-key-don't-check-this-in!
+      initial_version: 1.0.0
+  ```
+1. add a job such as the following, to your pipeline:
+
+  ```yml
+  - name: build-tile
+    serial_groups: [version]
+    plan:
+    - aggregate:
+      - get: tile-source
+      - get: tile-build
+      - get: version
+      - get: tile-history
+    - task: build-tile
+      file: tile-source/ci/build-tile/task.yml
+    - put: tile-history
+      params: {file: tile-history-new/*.yml}
+    - put: tile
+      params: {file: broker-tile/*.pivotal}
+  ```
+1. define the tile build task via a task.yml file (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):
+
+  ```yml
+  platform: linux
+  
+  image: docker:///cfplatformeng/tile-generator
+  
+  inputs:
+  - name: tile-source
+  - name: tile-build
+  - name: version
+  - name: tile-history
+  
+  outputs:
+  - name: tile
+  - name: tile-history-new
+  
+  run:
+    path: tile-repo/ci/build-tile/task.sh
+```
+1. create a task.sh script to build the tile (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):
+
+  ```sh
+  #!/bin/sh -ex
+  
+  cd tile-repo
+  
+  cp ../../tile-build/* the-place-in-tile.yml-where-the-build-goes
+  
+  ver=`more ../version/number`
+  tile build ${ver}
+  
+  file=`ls product/*.pivotal`
+  filename=$(basename "${file}")
+  filename="${filename%-*}"
+  
+  cp ${file} ../tile/${filename}-${ver}.pivotal
+  cp tile-history.yml ../tile-history-new/tile-history-${ver}.yml
+  ``` 
+1. string this job together with the other jobs in your pipeline (probably after a successful tile-build). The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.
 
 <a name="pool"></a> 
 ## Setting up PCF for your CI Pipeline
