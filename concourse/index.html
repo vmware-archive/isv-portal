@@ -332,7 +332,7 @@ automate your tile creation tasks via concourse. To make use of this image, you 
       bucket: your-aws-bucket-name
       regexp: tile-history-(?P&lt;version&gt;.*)\.yml
       secret_access_key: your-aws-access-key-don't-check-this-in!</code>
-1. (Optional) consider managing the versioning of your project via <a href="http://semver.org/">semver</a>. If you decide to do this, add something like the following to your pipeline.yml file:</p>
+1. (Optional) Consider managing the versioning of your project via <a href="http://semver.org/">semver</a>. If you decide to do this, add something like the following to your pipeline.yml file:</p>
 <p><code>yml
   - name: version
     type: semver
@@ -342,7 +342,7 @@ automate your tile creation tasks via concourse. To make use of this image, you 
       access_key_id: your-aws-key-id-don't-check-this-in!
       secret_access_key: your-aws-access-key-don't-check-this-in!
       initial_version: 1.0.0</code>
-1. add a job such as the following, to your pipeline:</p>
+1. Add a job such as the following, to your pipeline:</p>
 <p><code>yml
   - name: build-tile
     serial_groups: [version]
@@ -358,7 +358,7 @@ automate your tile creation tasks via concourse. To make use of this image, you 
       params: {file: tile-history-new/*.yml}
     - put: tile
       params: {file: broker-tile/*.pivotal}</code>
-1. define the tile build task via a task.yml file (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):</p>
+1. Define the tile build task via a task.yml file (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):</p>
 <p>```yml
   platform: linux</p>
 <p>image: docker:///cfplatformeng/tile-generator</p>
@@ -373,7 +373,7 @@ automate your tile creation tasks via concourse. To make use of this image, you 
 <p>run:
     path: tile-repo/ci/build-tile/task.sh
 ```
-1. create a task.sh script to build the tile (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):</p>
+1. Create a task.sh script to build the tile (per the above job configuration, this file would be added to the ci/build-tile directory in your source repository):</p>
 <p>```sh
   #!/bin/sh -ex</p>
 <p>cd tile-repo</p>
@@ -386,7 +386,7 @@ automate your tile creation tasks via concourse. To make use of this image, you 
 <p>cp ${file} ../tile/${filename}-${ver}.pivotal
   cp tile-history.yml ../tile-history-new/tile-history-${ver}.yml
   ``` 
-1. string this job together with the other jobs in your pipeline (probably after a successful tile-build). The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.</p>
+1. String this job together with the other jobs in your pipeline (probably after a successful tile-build). The job will then build your tile and place it in your s3 bucket along with an updated tile-history file.</p>
 <p><a name="pool"></a> </p>
 <h2 id="setting-up-pcf-for-your-ci-pipeline">Setting up PCF for your CI Pipeline</h2>
 <p>Pivotal partners who have us host their pipeline have access to a pool of PCF
