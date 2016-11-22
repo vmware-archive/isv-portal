@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,75 +12,75 @@
     
         
     <url>
-     <loc>None/getting-started/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/getting-started/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/cf-concepts/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/cf-concepts/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/stages/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/stages/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/development/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/development/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/tile-documentation/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/tile-documentation/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/concourse/</loc>
-     <lastmod>2016-11-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/troubleshooting/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc>/concourse/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     
 
     
+        
     <url>
-     <loc>None/contacts/</loc>
-     <lastmod>2016-11-18</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/troubleshooting/</loc>
+     <lastmod>2016-11-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/contacts/</loc>
+     <lastmod>2016-11-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
