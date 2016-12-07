@@ -385,6 +385,8 @@ by using the `docker-bosh` type:
 ```
 - name: docker-bosh1
   type: docker-bosh
+  docker_images:
+  - user/image
   cpu: 5
   memory: 4096
   ephemeral_disk: 4096
