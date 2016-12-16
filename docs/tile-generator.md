@@ -347,7 +347,21 @@ package definition to include a Redis BOSH release:
         slave: (( .redis_test_slave_z1.first_ip ))
 ```
 
+To include [BOSH links](https://bosh.io/docs/links.html) in your BOSH
+release package's deployment manifest, you can include the `consumes`
+and/or `provides` declarations *as strings* in the job's `template` section, e.g.:
 
+```
+# ...
+  jobs:
+  - name: job_name
+    templates:
+    - name: template_name
+      consumes: |
+        consumed_link: {from: foo}
+      provides: |
+        provided_link: {as: bar}
+```
 
 #### Buildpacks
 
