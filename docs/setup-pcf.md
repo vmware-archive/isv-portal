@@ -1,17 +1,5 @@
-<a name="setup"></a> 
-# Setting up PCF
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/environments.html#pcf" />
 
-Partners who participate in our program have access to a number of shared
-PCF environments that are operated and managed by Pivotal. If you are not
-(yet) in our program, need a dedicated environment, or want to be able to
-work offline, you can set up your own environment. Often, a
-[developer environment](setup-pcfdev.md) is sufficient for the early
-phases of an integration effort. But eventually, you will need access to
-a complete environment that includes Pivotal's Ops Manager on one of the
-supported infrastructures:
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
 
-- [Installing Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/installing/index.html)
-<a name="operations"></a> 
-- [Operating Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/opsguide/index.html)
-<a name="upgrade"></a> 
-- [Upgrading Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/customizing/upgrading-pcf.html)
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/environments.html#pcf).

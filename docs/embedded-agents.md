@@ -1,16 +1,5 @@
-# How to Build an Embedded Agent
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/embedded-agents.html" />
 
-Some integrations depend on the ability to inject code into the application container.
-Examples of this include:
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
 
-- Application Performance Monitoring (APM) agents
-- Container-embedded API gateways
-- Client-side routers
-
-We refer to these injected components as "container-embedded agents".
-[Buildpacks](buildpacks.md) provide a mechanism to inject components into the application
-container image, and the `.profile.d` directory provides a way to start agents before or
-alongside the customer application.
-
-- [Agent Injection with the meta-buildpack](https://github.com/guidowb/meta-buildpack)
-- [Using .profile.d](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/deploy-app.html#profiled)
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/embedded-agents.html).

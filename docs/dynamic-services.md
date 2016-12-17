@@ -1,6 +1,5 @@
-# How to Build a Dynamic Service
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/on-demand.html" />
 
-Dynamic, or on-demand, service capabilities are coming in bosh 2.0 and
-PCF 1.8. You can get access to these features now if you partner with
-Pivotal. Otherwise, check back frequently for the first public
-release of these capabilities.
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
+
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/on-demand.html).

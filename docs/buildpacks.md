@@ -1,19 +1,5 @@
-# How to Create a Buildpack
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/buildpacks.html" />
 
-- [Creating a custom buildpack](http://docs.pivotal.io/pivotalcf/buildpacks/custom.html)
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
 
-## Official buildpacks
-
-- [Java buildpack](https://github.com/cloudfoundry/java-buildpack) (by far the most compicated!)
-- [Go buildpack](https://github.com/cloudfoundry/go-buildpack)
-- [Ruby buildpack](https://github.com/cloudfoundry/ruby-buildpack)
-- [Node.js buildpack](https://github.com/cloudfoundry/nodejs-buildpack)
-- [Python buildpack](https://github.com/cloudfoundry/python-buildpack)
-- [PHP buildpack](https://github.com/cloudfoundry/php-buildpack)
-- [Static file buildpack](https://github.com/cloudfoundry/staticfile-buildpack) (for static web content)
-- [Binary buildpack](https://github.com/cloudfoundry/binary-buildpack)
-
-## Other buildpacks
-
-- [Meta-buildpack](https://github.com/guidowb/meta-buildpack)
-- [Spring Config decorator buildpack](https://github.com/guidowb/spring-config-decorator)
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/buildpacks.html).

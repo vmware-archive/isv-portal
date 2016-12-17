@@ -1,10 +1,5 @@
-# How to Build a Service Broker
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/service-brokers.html" />
 
-- [Custom Services](http://docs.pivotal.io/pivotalcf/services/index.html)
-- [Service Broker API](http://docs.pivotal.io/pivotalcf/services/api.html)
-- [Route Services](http://docs.pivotal.io/pivotalcf/services/route-services.html)
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
 
-## Example Service Brokers
-
-- [Example Service Brokers](http://docs.pivotal.io/pivotalcf/services/examples.html)
-- [Example Route Services](http://docs.pivotal.io/pivotalcf/services/route-services.html#examples)
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/service-brokers.html).

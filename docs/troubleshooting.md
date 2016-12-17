@@ -1,8 +1,5 @@
-# Troubleshooting
+<meta http-equiv="refresh" content="10; url=http://docs.pivotal.io/tiledev/reference.html" />
 
-Sooner or later you will run into problems that require digging a little bit deeper.
-Here are some great resources on how to best troubleshoot more complex issues:
+This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.
 
-- [Troubleshooting PCF](http://docs.pivotal.io/pivotalcf/customizing/troubleshooting.html)
-- [Troubleshooting Applications](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/troubleshoot-app-health.html)
-- [Advanced Troubleshooting with BOSH](http://docs.pivotal.io/pivotalcf/customizing/trouble-advanced.html)
+If you are not automatically redirected there, please follow [this link](http://docs.pivotal.io/tiledev/reference.html).
