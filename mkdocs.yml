@@ -1,5 +1,7 @@
 site_name: PCF Tile Developers Guide
 copyright: Copyright (C) 2016 Pivotal Software Inc.
+theme: mkdocs
+theme_dir: theme
 
 pages:
 - 'Home': 'index.md'
