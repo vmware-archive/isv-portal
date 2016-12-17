@@ -2,13 +2,103 @@
     "docs": [
         {
             "location": "/", 
-            "text": "PCF Tile Developers Guide\n\n\nThis content now has a home on the official \nPivotal documentation site\n.", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
             "title": "Home"
         }, 
         {
-            "location": "/#pcf-tile-developers-guide", 
-            "text": "This content now has a home on the official  Pivotal documentation site .", 
-            "title": "PCF Tile Developers Guide"
+            "location": "/getting-started/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/cf-concepts/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Cloud Foundry Concepts"
+        }, 
+        {
+            "location": "/stages/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Stages of Integration"
+        }, 
+        {
+            "location": "/development/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Development Process"
+        }, 
+        {
+            "location": "/tile-documentation/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Documentation"
+        }, 
+        {
+            "location": "/concourse/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Continuous Integration"
+        }, 
+        {
+            "location": "/tile-generator/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Tile Generator"
+        }, 
+        {
+            "location": "/pcf-command/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "PCF Command"
+        }, 
+        {
+            "location": "/concourse/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Concourse"
+        }, 
+        {
+            "location": "/service-brokers/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Service Brokers"
+        }, 
+        {
+            "location": "/managed-services/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Managed Services"
+        }, 
+        {
+            "location": "/dynamic-services/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Dynamic Services"
+        }, 
+        {
+            "location": "/buildpacks/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Buildpacks"
+        }, 
+        {
+            "location": "/embedded-agents/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Embedded Agents"
+        }, 
+        {
+            "location": "/nozzles/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Nozzles"
+        }, 
+        {
+            "location": "/setup-pcfdev/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Developer Environment"
+        }, 
+        {
+            "location": "/setup-pcf/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Full PCF Environment"
+        }, 
+        {
+            "location": "/troubleshooting/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Troubleshooting"
+        }, 
+        {
+            "location": "/contacts/", 
+            "text": "This content now has a home on the official Pivotal documentation site. Please update your bookmarks accordingly.\n\n\nIf you are not automatically redirected there, please follow \nthis link\n.", 
+            "title": "Contacts"
         }
     ]
 }
